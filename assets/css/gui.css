@@ -1,0 +1,101 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+	opacity: 0.95;
+	min-height: 100%;
+}
+
+/* Header */
+#header {
+  background: #232f3e;
+	min-height: 2em;
+}
+
+#slogan {
+	border-bottom:1px solid #303030;
+	padding-top:5px;
+}
+#slogan h2 {/* slogan */
+	margin:0px;
+	text-align:left;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: white;
+	font-size: 14px;
+}
+
+#navbar {/* navigation bar */
+	overflow: hidden;
+	display: block;
+	font-family: arial,sans-serif;
+	font-size: 14px;
+	line-height: 1em;
+	box-sizing: border-box;
+	margin: auto;
+}
+#navbar a {
+  float: left;
+	color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+#navbar a:hover {
+	border-style: solid;
+	border-width: 0.5px;
+	opacity: 0.8;
+	color: white;
+}
+
+/* Body */
+#content {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Footer */
+#footer {
+	bottom: 0;
+	width: 100%;
+	position: absolute;
+}
+#footer div#top {
+	background: #37475a;
+	width: 100%;
+	min-height: 1em;
+	text-align: center;
+	padding-top: 2px;
+}
+#top a {/* back to top */
+	color: white;
+  text-align: center;
+  text-decoration: none;
+	display: inline-block;
+	margin: 0 auto;
+	font-size: 12px;
+}
+#footer div#bottom {
+	background: #131a22;
+	width: 100%;
+	min-height: 2em;
+	padding-top: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+#bottom a {/* notice links */
+	color: white;
+	text-align: center;
+	display: inline-block;
+	font-size: 14px;
+	margin-right: 2em;
+}
+#bottom span {/* copy right statement */
+	color: white;
+	font-size: 14px;
+}
