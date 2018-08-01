@@ -1,7 +1,7 @@
 <?php
 
 /************************************************
-File:		  index.php
+File:		  layout.php
 Author:		Oliver Chi
 Purpose:	HTML Section for header and footer
 **************************************************/
@@ -19,7 +19,20 @@ $header = <<<HTML
 <body>
 	<div id="header">
 		<div id="slogan">
-			<h2>Welcome to AmazonBear.com</h2><!-- slogan -->
+			<span> Better than Amazon!!!</span><!-- slogan -->
+			<img src="assets/media/img/brand.png" alt="AmazonBear">
+			<div id="searchbar">
+			  <select><!-- select search range based departments -->
+			    <option value="0">All</option>
+			    <option value="1">Adult Fiction</option>
+			    <option value="2">Sci-fiction</option>
+			    <option value="3">Non-fiction</option>
+			    <option value="4">Magazine</option>
+			    <option value="5">Series</option>
+			  </select>
+				<input id="searchtextbox" value="" name="field-keywords" autocomplete="off" placeholder="" dir="auto" tabindex="6" type="text">
+				<input id="searchbutton" value="" tabindex="7" type="submit">
+			</div>
 		</div>
 		<div id="navbar"><!-- navigation bar -->
 		  <a href="#">Home</a>
