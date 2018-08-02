@@ -1,28 +1,61 @@
+*******************************************************
+*		Oliver Chi																				*
+*		Student NO.0061037192															*
+*		Project Topic: Book Store													*
+*******************************************************
 
+Brief:
+	This project is to establish a small online book store. It will follow Amazon style as much as possible. As the limitation of assignments, it will only include JQuery for Javascript and no PHP framework such as Laveral will be implemented in this project. The layout and style will all depended on CSS3 design.
 
+Appearance:
+	Due to limited techniques, simple and less animated pages will be expected.
 
-View products
-	- Name, description, reviews
+Functionality:
+	1) All Users:
+				- View products (name, description, reviews)
+				- Search products (simple and complex search)
+				- Cart record in cookies
 
-Search products
-	- by category
-	- by author/product name
-	- sort by price, alphabetical, etc
+	2) Register Users:
+				- Include all functionality of common users
+				- Account management (login name, email, phone...)
+				- Purchase management (cart, order, invoice, payment, shipping...)
+				- Store previous view/plan/order information on database
+				- Comment on product reviews
 
+	4) Administrator:
+				- Add/Adjust/Remove products (price, description, sales, category ...)
+				- Sent register user message/email
+				- Generate financial report
+				- Generate orders and invoice
 
-Add products to cart
+	3) Simple search:
+				- by category
+				- by author
+				- by book name
 
-User account
-	- Register accounts 
-	- Leave reviews
-	- Save cart for later
+	4) Complex search:
+				- by other features like publish year...
+				- by two or three features together
+				- result sort by price, alphabetical, etc
 
-Check out
+Database:
+	1) user table
+				primary key: userid
+				foreign key:
 
+	2) product table
+				primary key: productid
+				foreign key:
 
+	3) order table
+				primary key: orderid
+				foreign key: userid
 
-Product
-	name
-	price	
-	CATEGORY	
-	description
+	4) review table
+				primary key: reviewid
+				foreign key: userid, productid
+
+	5) cart table
+				primary key: cartid
+				foreign key: userid, orderid
