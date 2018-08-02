@@ -1,0 +1,28 @@
+
+
+
+View products
+	- Name, description, reviews
+
+Search products
+	- by category
+	- by author/product name
+	- sort by price, alphabetical, etc
+
+
+Add products to cart
+
+User account
+	- Register accounts 
+	- Leave reviews
+	- Save cart for later
+
+Check out
+
+
+
+Product
+	name
+	price	
+	CATEGORY	
+	description

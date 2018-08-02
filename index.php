@@ -13,8 +13,11 @@ Purpose:	View products
 	$uri .= $_SERVER['HTTP_HOST'];
 
 	require("layout.php");
+	require("content.php");
 
   echo $header;
+
+	echo $content;
 
   echo $footer;
 
