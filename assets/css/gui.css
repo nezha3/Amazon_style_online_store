@@ -38,7 +38,8 @@ body {
 #searchbar {
 	display: inline;
 	overflow: hidden;
-	margin-left: 14em;
+	margin-right: 10em;
+	float: right;
 	vertical-align: top;
 	height: 25px;
 }
@@ -93,24 +94,22 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
-
+#content h3 {
+	opacity: 0.8;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
+}
 #leftcolumn {
 	float: left;
 	width: 25%;
 	border-right: solid 0.5px;
 	border-right-color: #7f7f7f;
 }
-#leftcolumn .card {
-	padding: 5px;
-	border-top: solid 0.5px;
-	border-top-color: #7f7f7f;
-}
-
 #rightcolumn {
 	float: right;
 	width: 74%;
 }
-#rightcolumn .card {
+.card {
 	padding: 5px;
 	border-top: solid 0.5px;
 	border-top-color: #7f7f7f;
@@ -150,10 +149,10 @@ body {
 	color: white;
 	text-align: center;
 	display: inline-block;
-	font-size: 14px;
+	font-size: 13px;
 	margin-right: 2em;
 }
 #bottom span {/* copy right statement */
 	color: white;
-	font-size: 14px;
+	font-size: 13px;
 }
