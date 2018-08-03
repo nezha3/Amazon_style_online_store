@@ -6,15 +6,15 @@ html, body {
 }
 
 body {
-	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-	opacity: 0.95;
-	min-height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 /* Header */
 #header {
   background: #232f3e;
 	min-height: 2em;
+	flex-shrink: 0;
 }
 
 #slogan {
@@ -91,8 +91,9 @@ body {
 /* Body */
 #content {
 	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
+	flex: 1 0 auto;
+	/*background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+	opacity: 0.95;*/
 }
 #content h3 {
 	opacity: 0.8;
@@ -114,18 +115,40 @@ body {
 	border-top: solid 0.5px;
 	border-top-color: #7f7f7f;
 }
+.card a {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
+	color: black;
+	text-align: left;
+	padding-left: 5px;
+}
+.book {
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 150px;
+}
+.book a{
+
+}
+.book a:visited{
+
+}
+.book p{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
+	text-align: left;
+}
 
 
 /* Footer */
 #footer {
-	bottom: 0;
 	width: 100%;
-	position: absolute;
+	flex-shrink: 0;
 }
 #footer div#top {
 	background: #37475a;
 	width: 100%;
-	min-height: 1em;
 	text-align: center;
 	padding-top: 2px;
 }

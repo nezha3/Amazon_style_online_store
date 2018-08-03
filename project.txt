@@ -1,11 +1,14 @@
 *******************************************************
 *		Oliver Chi																				*
 *		Student NO.0061037192															*
-*		Project Topic: Book Store													*
+*		Project Topic: AmazonBear.com Book Store					*
 *******************************************************
 
 Brief:
-	This project is to establish a small online book store. It will follow Amazon style as much as possible. As the limitation of assignments, it will only include JQuery for Javascript and no PHP framework such as Laveral will be implemented in this project. The layout and style will all depended on CSS3 design.
+	This project is to establish a small online book store. It will follow Amazon
+	style as much as possible. As the limitation of assignments, it will only include
+	 JQuery for Ajax and no PHP framework such as Laveral will be implemented
+	 in this project. The layout and style will all be depended on CSS3 design.
 
 Appearance:
 	Due to limited techniques, simple and less animated pages will be expected.
@@ -14,30 +17,42 @@ Functionality:
 	1) All Users:
 				- View products (name, description, reviews)
 				- Search products (simple and complex search)
-				- Cart record in cookies
+				- Cart record in cookies (possibly recover cart from cookies)
 
 	2) Register Users:
-				- Include all functionality of common users
-				- Account management (login name, email, phone...)
-				- Purchase management (cart, order, invoice, payment, shipping...)
-				- Store previous view/plan/order information on database
-				- Comment on product reviews
+				- Include all functionalities of common users
+				- Account management
+						- login/logout Account
+						- change stored account information (account name, password, email, phone...)
+				- Purchase processing management
+						- make orders or save an order for payment
+						- make online payment for orders
+						- save an cart for later
+						- review previous order and invoice
+						- monitor shipping condition of current order
+						- choose valid payment methods
+						- make a return of purchased product
+				- Store previous view/plan/order information automatically on database
+				- Comment on product reviews and able to delete them later
 
-	4) Administrator:
+	3) Administrator:
 				- Add/Adjust/Remove products (price, description, sales, category ...)
 				- Sent register user message/email
-				- Generate financial report
-				- Generate orders and invoice
+				- Generate financial reports
+				- Generate analysis report of orders and invoices
 
-	3) Simple search:
-				- by category
-				- by author
-				- by book name
+	4) Simple search:
+				search by an keyword;
+					- by category
+					- by author
+					- by book name
 
-	4) Complex search:
-				- by other features like publish year...
-				- by two or three features together
-				- result sort by price, alphabetical, etc
+	5) Complex search:
+				search by several keywords and further select the results according to
+				the range of product properties like price;
+					- by other features like publish year...
+					- by two or three features together
+					- results sort by price, alphabetical, etc
 
 Database:
 	1) user table
