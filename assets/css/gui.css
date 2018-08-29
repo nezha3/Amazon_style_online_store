@@ -1,3 +1,8 @@
+/*
+*		css3 style for layout
+*		and design for first page
+*/
+
 html, body {
 	height: 100%;
 	width: 100%;
@@ -41,12 +46,13 @@ body {
 	margin-right: 10em;
 	float: right;
 	vertical-align: top;
-	height: 25px;
+	height: 30px;
 }
 #searchbar select {
 	width: 50px;
 	height: 30px;
 	margin-right: -4px;
+	vertical-align: middle;
 }
 #searchbar input#searchtextbox {
 	width: 300px;
@@ -56,7 +62,8 @@ body {
 }
 #searchbar input#searchbutton {
 	width: 30px;
-	height: 25px;
+	height: 30px;
+	vertical-align: middle;
 	background-color: #febd69;
 	background-image: url("../media/img/search.png");
 	background-position: center;

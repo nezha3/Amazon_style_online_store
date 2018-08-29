@@ -12,15 +12,16 @@ $header = <<<HTML
 <head>
 	<title>my bear can fly</title>
 	<!-- icon -->
-  <link rel="icon" type="image/png" href="assets/media/img/icon.png"><!-- my bear -->
+  <link rel="icon" type="image/png" href="../assets/media/img/icon.png"><!-- my bear -->
 	<!-- css -->
-	<link rel='stylesheet' type='text/css' href='assets/css/gui.css' />
+	<link rel='stylesheet' type='text/css' href='../assets/css/gui.css' />
+	<link rel='stylesheet' type='text/css' href='../assets/css/form.css' />
 </head>
 <body>
 	<div id="header">
 		<div id="slogan">
 			<span> Better than Amazon!!!</span><!-- slogan -->
-			<img src="assets/media/img/brand.png" alt="AmazonBear">
+			<img src="../assets/media/img/brand.png" alt="AmazonBear">
 			<div id="searchbar">
 			  <select><!-- select search range based departments -->
 			    <option value="0">All</option>
@@ -39,7 +40,7 @@ $header = <<<HTML
 		  <a href="#">Shop by</a>
 		  <a href="#">Sell</a>
 			<a href="#" style="float:right">Cart</a>
-			<a href="./pages/login.php" style="float:right">Your Account</a>
+			<a href="./login.php" style="float:right">Your Account</a>
 		</div>
 	</div><!-- End header-->
 	<div id="content">

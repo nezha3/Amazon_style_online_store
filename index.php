@@ -2,7 +2,7 @@
 /************************************************
 File:		  index.php
 Author:		Oliver Chi
-Purpose:	View products
+Purpose:	First Page of Website
 **************************************************/
 
 	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
