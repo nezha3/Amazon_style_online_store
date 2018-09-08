@@ -49,7 +49,8 @@ HTML;
 	}
 	$uri .= $_SERVER['HTTP_HOST'];
 
-	require("./layout.php");
+  require("../libcommon.php");
+	require("layout.php");
 
   echo $header;
 

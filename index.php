@@ -12,6 +12,7 @@ Purpose:	First Page of Website
 	}
 	$uri .= $_SERVER['HTTP_HOST'];
 
+	require("libcommon.php");
 	require("layout.php");
 	require("content.php");
 
