@@ -31,12 +31,12 @@ $header = <<<HTML
 			    <option value="4">Magazine</option>
 			    <option value="5">Series</option>
 			  </select>
-				<input id="searchtextbox" value="" name="field-keywords" autocomplete="off" placeholder="" dir="auto" tabindex="6" type="text">
-				<input id="searchbutton" value="" tabindex="7" type="submit">
+				<input id="searchtextbox" value="" name="field-keywords" autocomplete="off" placeholder="" type="text">
+				<input id="searchbutton" value="" type="submit">
 			</div>
 		</div>
 		<div id="navbar"><!-- navigation bar -->
-		  <a href="#">Home</a>
+		  <a href="../index.php">Home</a>
 		  <a href="#">Shop by</a>
 		  <a href="#">Sell</a>
 			<a href="#" style="float:right">Cart</a>

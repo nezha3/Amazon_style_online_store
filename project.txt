@@ -74,3 +74,9 @@ Database:
 	5) cart table
 				primary key: cartid
 				foreign key: userid, orderid
+
+Installation:
+	1) please make sure the directory of SQLite3 database and files are write-able;
+	if not, please change the permission of directory and files in /assets/db/.
+
+	

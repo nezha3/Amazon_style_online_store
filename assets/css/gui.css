@@ -24,7 +24,6 @@ body {
 
 #slogan {
 	border-bottom:1px solid #303030;
-	padding-top:5px;
 }
 #slogan img {
 	width: 100px;
@@ -38,38 +37,32 @@ body {
 	color: white;
 	font-size: 12px;
 	margin-left: 5px;
+	padding-top:5px;
 }
 
 #searchbar {
-	display: inline;
-	overflow: hidden;
+	display: inline-flex;
 	margin-right: 10em;
 	float: right;
-	vertical-align: top;
-	height: 30px;
+	height: 30px;!important
 }
 #searchbar select {
-	width: 50px;
-	height: 30px;
-	margin-right: -4px;
-	vertical-align: middle;
+	height: 30px;!important
+	width: 5em;
 }
 #searchbar input#searchtextbox {
+	height: 30px;!important
 	width: 300px;
-	height: inherit;
-	margin-right: -4px;
-	text-align: center;
+	text-align: left;
 }
 #searchbar input#searchbutton {
-	width: 30px;
-	height: 30px;
-	vertical-align: middle;
+	height: 25px;!important
+	width: 25px;!important
 	background-color: #febd69;
 	background-image: url("../media/img/search.png");
-	background-position: center;
+	background-repeat: no-repeat;!important
 	border: none;
 	cursor: pointer;
-	line-height: 1px;
 }
 
 #navbar {/* navigation bar */
