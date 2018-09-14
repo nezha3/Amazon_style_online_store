@@ -112,8 +112,18 @@ D. Database Design:
 				| id [INT(8)] | user-id [INT(8)] | product-id [INT(8)] | amount [TINYINT(1)] |
 				------------------------------------------------------------------------------
 
+	9) admin table: store administrators' name and key
+				primary key: name
+				foreign key: user-id, product-id
+				------------------------------------------
+			  | name [VARCHAR(10)] | key [VARCHAR(10)] |
+				------------------------------------------
+
 E. Installation:
 	1) Make sure the directory of SQLite3 database and files are write-able;
 	if not, please change the permission of directory and files in /assets/db/.
 
 	2) Run install.php first before publishing this website;
+
+	3) Default administrator account is name {admin} key {usq-ict};
+	

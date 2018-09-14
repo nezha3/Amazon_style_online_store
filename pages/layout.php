@@ -32,7 +32,7 @@ $header = <<<HTML
 			    <option value="5">Series</option>
 			  </select>
 				<input id="searchtextbox" value="" name="field-keywords" autocomplete="off" placeholder="" type="text">
-				<input id="searchbutton" value="" type="submit">
+				<input id="searchbutton" value="" tabindex="7" type="submit">
 			</div>
 		</div>
 		<div id="navbar"><!-- navigation bar -->

@@ -116,7 +116,7 @@ HTML;
 
 <?php
 
-  require("../libcommon.php");
+  require("libcommon.php");
 	require("layout.php");
 
   echo $header;

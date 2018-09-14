@@ -41,28 +41,33 @@ body {
 }
 
 #searchbar {
-	display: inline-flex;
 	margin-right: 10em;
 	float: right;
-	height: 30px;!important
+	height: 30px;
+	align-items: center;
 }
 #searchbar select {
-	height: 30px;!important
-	width: 5em;
+	position: relative;
+	width: 10em;
+	height: 24px;
 }
 #searchbar input#searchtextbox {
-	height: 30px;!important
-	width: 300px;
+	position: relative;
+	width: 20em;
 	text-align: left;
+	height: 22px;
 }
 #searchbar input#searchbutton {
-	height: 25px;!important
-	width: 25px;!important
 	background-color: #febd69;
 	background-image: url("../media/img/search.png");
-	background-repeat: no-repeat;!important
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 	border: none;
 	cursor: pointer;
+	display: inline-block;
+	width: 26px;
+	height: 20px;
 }
 
 #navbar {/* navigation bar */
