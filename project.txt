@@ -4,20 +4,20 @@
 *		Project Topic: AmazonBear.com Book Store					*
 *******************************************************
 
-Brief:
+A. Brief:
 	This project is to establish a small online book store. It will follow Amazon
 	style as much as possible. As the limitation of assignments, it will only include
 	 JQuery for Ajax and no PHP framework such as Laveral will be implemented
 	 in this project. The layout and style will all be depended on CSS3 design.
 
-Appearance:
+B. Appearance:
 	Due to limited techniques, simple and less animated pages will be expected.
 
-Functionality:
+C. Functionality:
 	1) All Users:
 				- View products (name, description, reviews)
 				- Search products (simple and complex search)
-				- Cart record in cookies (possibly recover cart from cookies)
+				- Register as formal user
 
 	2) Register Users:
 				- Include all functionalities of common users
@@ -32,8 +32,8 @@ Functionality:
 						- monitor shipping condition of current order
 						- choose valid payment methods
 						- make a return of purchased product
-				- Store previous view/plan/order information automatically on database
-				- Comment on product reviews and able to delete them later
+				- Store previous views/carts/orders/invoices information automatically on database
+				- Comment on product reviews, rate products by stars and able to delete them later
 
 	3) Administrator:
 				- Add/Adjust/Remove products (price, description, sales, category ...)
@@ -45,38 +45,75 @@ Functionality:
 				search by an keyword;
 					- by category
 					- by author
-					- by book name
+					- by book name/title
 
 	5) Complex search:
 				search by several keywords and further select the results according to
 				the range of product properties like price;
 					- by other features like publish year...
-					- by two or three features together
+					- by two or three features together such as author and category;
 					- results sort by price, alphabetical, etc
 
-Database:
-	1) user table
-				primary key: userid
+D. Database Design:
+	1) user table: store user information
+				primary key: id
 				foreign key:
+				------------------------------------------------------------------------------
+				| id [INT(8)] | email [VARCHAR(64)] | key [VARCHAR(16)] | name [VARCHAR(32)] |
+				------------------------------------------------------------------------------
 
-	2) product table
-				primary key: productid
+	2) product table: store product information
+				primary key: id
 				foreign key:
+				-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				| id [INT(8)] | title [VARCHAR(255)] | author [VARCHAR(64)] | date [DATE] | category [TINYINT(1)] | price [FLOAT(10,2)] | discount [FLOAT(2,2)] | brief [TEXT] | description [LONGTEXT] |
+				-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	3) order table
-				primary key: orderid
-				foreign key: userid
+	3) order table: store order information
+				primary key: id
+				foreign key: user-id, delivery-id
+				-------------------------------------------------------------------------------------------------------------------------
+				| id [INT(8)] | user-id [INT(8)] | date [DATE] | total-price [FLOAT(10,2)] | if-paid [TINYINT(1)] | delivery-id [INT(8)] |
+				-------------------------------------------------------------------------------------------------------------------------
 
-	4) review table
-				primary key: reviewid
-				foreign key: userid, productid
+	4) order-products table: store details of products in orders such as the amount and price
+				primary key: id
+				foreign key: order-id, product-id
+				-----------------------------------------------------------------------------------------------------------------------------
+				| id [INT(8)] | order-id [INT(8)] | product-id [INT(8)] | price [FLOAT(10,2)] | discount [FLOAT(2,2)] | amount [TINYINT(1)] |
+				-----------------------------------------------------------------------------------------------------------------------------
 
-	5) cart table
-				primary key: cartid
-				foreign key: userid, orderid
+	5) delivery table: store delivery information of orders and status of delivery
+				primary key: id
+				foreign key: order-id
+				---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				| id [INT(8)] | order-id [INT(8)] | status [TINYINT(1)] | deliverer [VARCHAR(64)] | barcode [VARCHAR(32)] | phone [VARCHAR(10)] | street [VARCHAR(255)] | city [VARCHAR(32)] | state [VARCHAR(3)] | postcode [VARCHAR(4)] |
+				---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Installation:
-	1) please make sure the directory of SQLite3 database and files are write-able;
+	6) invoice table: store invoice information
+				primary key: id
+				foreign key: order-id
+				------------------------------------------------------------------------------------------------------------------------
+				| id [INT(8)] | order-id [INT(8)] | name [VARCHAR(64)] | info [VARCHAR(255)] | price [FLOAT(10,2)] | gst [FLOAT(10,2)] |
+				------------------------------------------------------------------------------------------------------------------------
+
+
+	7) review table: store reviews of products from registered users
+				primary key: id
+				foreign key: user-id, product-id
+				-------------------------------------------------------------------------------------------------
+				| id [INT(8)] | user-id [INT(8)] | product-id [INT(8)] | star [TINYINT(1)] | comment [LONGTEXT] |
+				-------------------------------------------------------------------------------------------------
+
+	8) cart table: store temporary cart created by registered users
+				primary key: id
+				foreign key: user-id, product-id
+				------------------------------------------------------------------------------
+				| id [INT(8)] | user-id [INT(8)] | product-id [INT(8)] | amount [TINYINT(1)] |
+				------------------------------------------------------------------------------
+
+E. Installation:
+	1) Make sure the directory of SQLite3 database and files are write-able;
 	if not, please change the permission of directory and files in /assets/db/.
 
-	
+	2) Run install.php first before publishing this website;
