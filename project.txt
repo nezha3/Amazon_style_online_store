@@ -123,7 +123,7 @@ E. Installation:
 	1) Make sure the directory of SQLite3 database and files are write-able;
 	if not, please change the permission of directory and files in /assets/db/.
 
-	2) Run install.php first before publishing this website;
+	2) Run install.php first before publishing this website; If error happened,
+	please copy empty database and rename as 'db.sq3'. The file directory is at '/media/db/'.
 
 	3) Default administrator account is name {admin} key {usq-ict};
-	
