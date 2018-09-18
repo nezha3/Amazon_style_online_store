@@ -7,7 +7,8 @@ Purpose:	HTML Section for content
 **************************************************/
 
 $content = <<<HTML
-  <!-- Display category -->
+  <div id="content">
+    <!-- Display category -->
     <div id="leftcolumn"><!-- left column for Category and Refine -->
       <div class="card"><!-- new releases -->
         <h3>New Releases</h3>
@@ -36,46 +37,82 @@ $content = <<<HTML
       </div>
     </div>
 
-  <!-- Display Books -->
+    <!-- Display Books -->
     <div id="rightcolumn"><!-- right column for display books -->
       <div class="card"><!-- by Category -->
         <h3>Shop by category</h3>
       </div>
       <div class="bookrow">
         <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/1.jpg" alt="Genre Fiction Image">
-            <p>Genre Fiction</p>
+          <a href="#" onclick="category(0)">
+            <img src="assets/media/img/category/0.jpg" alt="Image">
+            <p>$category[0]</p>
           </a>
         </div>
         <div class="book">
           <a href="#">
-            <img src="assets/media/img/category/2.jpg" alt="Literary Image">
-            <p>Literary</p>
+            <img src="assets/media/img/category/1.jpg" alt="Image">
+            <p>$category[1]</p>
           </a>
         </div>
         <div class="book">
           <a href="#">
-            <img src="assets/media/img/category/3.jpg" alt="Classics Image">
-            <p>Classics</p>
+            <img src="assets/media/img/category/2.jpg" alt="Image">
+            <p>$category[2]</p>
           </a>
         </div>
         <div class="book">
           <a href="#">
-            <img src="assets/media/img/category/4.jpg" alt="World Literature Image">
-            <p>World Literature</p>
+            <img src="assets/media/img/category/3.jpg" alt="Image">
+            <p>$category[3]</p>
           </a>
         </div>
         <div class="book">
           <a href="#">
-            <img src="assets/media/img/category/5.jpg" alt="Contemporary Image">
-            <p>Contemporary</p>
+            <img src="assets/media/img/category/4.jpg" alt="Image">
+            <p>$category[4]</p>
           </a>
         </div>
         <div class="book">
           <a href="#">
-            <img src="assets/media/img/category/6.jpg" alt="History & Criticism Image">
-            <p>History & Criticism</p>
+            <img src="assets/media/img/category/5.jpg" alt="Image">
+            <p>$category[5]</p>
+          </a>
+        </div>
+        <div class="book">
+          <a href="#">
+            <img src="assets/media/img/category/6.jpg" alt="Image">
+            <p>$category[6]</p>
+          </a>
+        </div>
+        <div class="book">
+          <a href="#">
+            <img src="assets/media/img/category/7.jpg" alt="Image">
+            <p>$category[7]</p>
+          </a>
+        </div>
+        <div class="book">
+          <a href="#">
+            <img src="assets/media/img/category/8.jpg" alt="Image">
+            <p>$category[8]</p>
+          </a>
+        </div>
+        <div class="book">
+          <a href="#">
+            <img src="assets/media/img/category/9.jpg" alt="Image">
+            <p>$category[9]</p>
+          </a>
+        </div>
+        <div class="book">
+          <a href="#">
+            <img src="assets/media/img/category/10.jpg" alt="Image">
+            <p>$category[10]</p>
+          </a>
+        </div>
+        <div class="book">
+          <a href="#">
+            <img src="assets/media/img/category/11.jpg" alt="Image">
+            <p>$category[11]</p>
           </a>
         </div>
       </div>
@@ -126,6 +163,8 @@ $content = <<<HTML
         </div>
       </div>
     </div>
+
+  </div><!-- End content-->
 HTML;
 
 ?>

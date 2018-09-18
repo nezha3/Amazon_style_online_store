@@ -15,6 +15,19 @@ $header = <<<HTML
   <link rel="icon" type="image/png" href="assets/media/img/icon.png"><!-- my bear -->
 	<!-- css -->
 	<link rel='stylesheet' type='text/css' href='assets/css/gui.css' />
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script language = "javascript" type = "text/javascript"><!-- Ajax functions -->
+		function category(num){
+			var ajaxRequest = new XMLHttpRequest();
+			ajaxRequest.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					$("#rightcolumn .card h3").text(this.responseText);
+				}
+			}
+			ajaxRequest.open("GET", "books.php?category="+num, true);
+			ajaxRequest.send();
+		}
+	</script>
 </head>
 <body>
 	<div id="header">
@@ -42,11 +55,9 @@ $header = <<<HTML
 			<a href="./pages/login.php" style="float:right">Your Account</a>
 		</div>
 	</div><!-- End header-->
-	<div id="content">
 HTML;
 
 $footer = <<<HTML
-	</div><!-- End content-->
 	<div id="footer">
 		<div id="top">
 			<a href="#header">Back to top</a>
