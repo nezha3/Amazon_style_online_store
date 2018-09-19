@@ -6,8 +6,6 @@ Author:		Oliver Chi
 Purpose:	display content in homepage
 **************************************************/
 
-require("libcommon.php");//add common interfaces
-
 echo "<div id='leftcolumn'><!-- left column for Category and Refine -->
         <div class='card'><!-- new releases -->
           <h3>New Releases</h3>

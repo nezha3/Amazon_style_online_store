@@ -7,6 +7,7 @@ Purpose:	display books in categories or others
 **************************************************/
 
 require("libcommon.php");//add common interfaces
+$db = loadDB(); //load database
 
 /* Get book/books */
 if (array_key_exists('category', $_GET)) {//books in one category
@@ -60,5 +61,7 @@ if (array_key_exists('category', $_GET)) {//books in one category
 
   }
 }
+
+$db->close();//close connection of database
 
  ?>

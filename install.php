@@ -634,7 +634,6 @@ Libby does not know how much more pain her already paper-thin heart can take and
     echo "error in the processing of product 36 info writing into database<br>";
   }
 
-
 // Close database
   $db->close();
 

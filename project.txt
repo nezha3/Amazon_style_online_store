@@ -119,7 +119,28 @@ D. Database Design:
 			  | name [VARCHAR(10)] | key [VARCHAR(10)] |
 				------------------------------------------
 
-E. Installation:
+E. Media and Other Files
+	1) Media/Image: /assets/media/img
+					brand.png is the brand image of this website
+					icon.png is the icon picture of this website
+					search.png is the image for search button
+					/category/*.jpg are sample images for books in specific category
+					/books/*.jpg are sample pictures for all books
+					/form/*.png are images for rows in forms
+
+	2) CSS: /assets/css/
+					form.css is for forms of register or login
+					gui.css is for general pages
+
+  3) database: /assets/db/
+					db.sq3 is the Sqlite3 database which this project users
+					db.sq3 empty db is the empty sample for db.sq3
+
+	4) javascript library: /assets/js/
+					jquery-3.3.1.min.js is update JQuery library
+
+
+F. Installation:
 	1) Make sure the directory of SQLite3 database and files are write-able;
 	if not, please change the permission of directory and files in /assets/db/.
 
