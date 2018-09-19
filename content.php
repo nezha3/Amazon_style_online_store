@@ -39,127 +39,130 @@ $content = <<<HTML
 
     <!-- Display Books -->
     <div id="rightcolumn"><!-- right column for display books -->
+
       <div class="card"><!-- by Category -->
         <h3>Shop by category</h3>
+        <div class="bookrow">
+          <div class="book">
+            <a href="#" onclick="category(0)">
+              <img src="assets/media/img/category/0.jpg" alt="Image">
+              <p>$category[0]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(1)">
+              <img src="assets/media/img/category/1.jpg" alt="Image">
+              <p>$category[1]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(2)">
+              <img src="assets/media/img/category/2.jpg" alt="Image">
+              <p>$category[2]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(3)">
+              <img src="assets/media/img/category/3.jpg" alt="Image">
+              <p>$category[3]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(4)">
+              <img src="assets/media/img/category/4.jpg" alt="Image">
+              <p>$category[4]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(5)">
+              <img src="assets/media/img/category/5.jpg" alt="Image">
+              <p>$category[5]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(6)">
+              <img src="assets/media/img/category/6.jpg" alt="Image">
+              <p>$category[6]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(7)">
+              <img src="assets/media/img/category/7.jpg" alt="Image">
+              <p>$category[7]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(8)">
+              <img src="assets/media/img/category/8.jpg" alt="Image">
+              <p>$category[8]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(9)">
+              <img src="assets/media/img/category/9.jpg" alt="Image">
+              <p>$category[9]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(10)">
+              <img src="assets/media/img/category/10.jpg" alt="Image">
+              <p>$category[10]</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#" onclick="category(11)">
+              <img src="assets/media/img/category/11.jpg" alt="Image">
+              <p>$category[11]</p>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="bookrow">
-        <div class="book">
-          <a href="#" onclick="category(0)">
-            <img src="assets/media/img/category/0.jpg" alt="Image">
-            <p>$category[0]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/1.jpg" alt="Image">
-            <p>$category[1]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/2.jpg" alt="Image">
-            <p>$category[2]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/3.jpg" alt="Image">
-            <p>$category[3]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/4.jpg" alt="Image">
-            <p>$category[4]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/5.jpg" alt="Image">
-            <p>$category[5]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/6.jpg" alt="Image">
-            <p>$category[6]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/7.jpg" alt="Image">
-            <p>$category[7]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/8.jpg" alt="Image">
-            <p>$category[8]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/9.jpg" alt="Image">
-            <p>$category[9]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/10.jpg" alt="Image">
-            <p>$category[10]</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/category/11.jpg" alt="Image">
-            <p>$category[11]</p>
-          </a>
-        </div>
-      </div>
+
       <div class="card"><!-- Bestsellers -->
         <h3>Bestsellers</h3>
+        <div class="bookrow">
+          <div class="book">
+            <a href="#">
+              <img src="assets/media/img/bestseller/1.jpg" alt="bestseller Image">
+              <p>All the Little Lights<p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#">
+              <img src="assets/media/img/bestseller/2.jpg" alt="bestseller Image">
+              <p>Literary</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#">
+              <img src="assets/media/img/bestseller/3.jpg" alt="bestseller Image">
+              <p>Classics</p>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="bookrow">
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/bestseller/1.jpg" alt="bestseller Image">
-            <p>All the Little Lights<p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/bestseller/2.jpg" alt="bestseller Image">
-            <p>Literary</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/bestseller/3.jpg" alt="bestseller Image">
-            <p>Classics</p>
-          </a>
-        </div>
-      </div>
+
       <div class="card"><!-- new releases -->
         <h3>Hot new releases</h3>
-      </div>
-      <div class="bookrow">
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/newreleases/1.jpg" alt="newreleases Image">
-            <p>The Wife Arrangement<p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/newreleases/2.jpg" alt="newreleases Image">
-            <p>The Art of Inheriting Secrets</p>
-          </a>
-        </div>
-        <div class="book">
-          <a href="#">
-            <img src="assets/media/img/newreleases/3.jpg" alt="newreleases Image">
-            <p>Dead Lock</p>
-          </a>
+        <div class="bookrow">
+          <div class="book">
+            <a href="#">
+              <img src="assets/media/img/newreleases/1.jpg" alt="newreleases Image">
+              <p>The Wife Arrangement<p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#">
+              <img src="assets/media/img/newreleases/2.jpg" alt="newreleases Image">
+              <p>The Art of Inheriting Secrets</p>
+            </a>
+          </div>
+          <div class="book">
+            <a href="#">
+              <img src="assets/media/img/newreleases/3.jpg" alt="newreleases Image">
+              <p>Dead Lock</p>
+            </a>
+          </div>
         </div>
       </div>
     </div>

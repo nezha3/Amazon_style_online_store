@@ -8,6 +8,7 @@ html, body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	min-width: 720px;
 }
 
 body {
@@ -97,6 +98,7 @@ body {
 #content {
 	width: 100%;
 	flex: 1 0 auto;
+	min-width: 720px;
 	/*background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 	opacity: 0.95;*/
 }
@@ -107,13 +109,13 @@ body {
 }
 #leftcolumn {
 	float: left;
-	width: 25%;
-	border-right: solid 0.5px;
-	border-right-color: #7f7f7f;
+	width: 24.5%;
 }
 #rightcolumn {
 	float: right;
-	width: 74%;
+	width: 75%;
+	border-left: solid 0.5px;
+	border-left-color: #7f7f7f;
 }
 .card {
 	padding: 5px;
@@ -124,8 +126,8 @@ body {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 12px;
 	color: black;
-	text-align: left;
-	padding-left: 5px;
+	text-align: center;
+	align-self: center;
 }
 .book {
 	display: inline-block;
@@ -139,12 +141,41 @@ body {
 .book a:visited{
 
 }
+.book a img{
+	max-width: 180px;
+	width: auto;
+	max-height: 120px;
+	height: auto;
+
+}
 .book p{
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 12px;
 	text-align: left;
 }
 
+#leftCol{
+	float: left;
+  margin-right: 20px;
+  width: 260px;
+}
+#leftCol img{
+	text-align: center;
+	margin-left: 10px;
+	margin-top: 20px;
+	max-width: 220px;
+	height: auto;
+}
+
+#centerCol{
+	margin-right: 320px;
+  margin-left: 310px;
+}
+#rightCol{
+	float: right;
+  margin: 0 0 22px 20px;
+  width: 200px;
+}
 
 /* Footer */
 #footer {

@@ -9,7 +9,7 @@ Purpose:	Load database and check cookies
 // Define globaL variables
 $dir = dirname(__FILE__);
 $category = array("Children's Books","Textbooks & Study Guides","Science Fiction & Fantasy","Literature & Fiction","Travel & Tourism","Romance","Business & Economics","Mystery, Thriller & Suspense","Biographies & Memoirs","Health, Fitness & Nutrition","Cookbooks, Food & Wine","Teen & Young Adult");
-
+$i = 0; //for loop index
 
 // Check cookies
 
