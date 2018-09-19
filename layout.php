@@ -80,13 +80,29 @@ $header = <<<HTML
 			ajaxRequest.open("GET", "books.php?row=newrelease", true);
 			ajaxRequest.send();
 		}
-
-		// Home page: right column
-		function rightcolumn(){
-			allcategories();
-			bestseller();
-			newreleases();
+		//Homepage: content structure
+		function content(){
+			var ajaxRequest = new XMLHttpRequest();
+			ajaxRequest.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					$("#content").empty();//empty previous elements
+					$("#content").append(this.responseText);//append new elements
+				}
+			}
+			ajaxRequest.open("GET", "home.php", true);
+			ajaxRequest.send();
 		}
+		// Home page: content body
+		function home(){
+			content();
+			allcategories();
+			//bestseller();
+			//newreleases();
+		}
+
+		$('document').ready(function(){//when DOM complete, run homepage content
+			home();
+		});
 
 	</script>
 </head>
@@ -117,13 +133,20 @@ $header = <<<HTML
 			</div>
 		</div>
 		<div id="navbar"><!-- navigation bar -->
-		  <a href="#">Home</a>
+		  <a href="#" onclick="home()">Home</a>
 		  <a href="#">Shop by</a>
 		  <a href="#">Sell</a>
 			<a href="#" style="float:right">Cart</a>
 			<a href="./pages/login.php" style="float:right">Your Account</a>
 		</div>
 	</div><!-- End header-->
+HTML;
+
+$content = <<<HTML
+  <div id="content">
+    <!-- Display category -->
+    <!-- Display Books -->
+  </div><!-- End content-->
 HTML;
 
 $footer = <<<HTML

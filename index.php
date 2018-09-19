@@ -14,7 +14,6 @@ Purpose:	First Page of Website
 
 	require("libcommon.php");
 	require("layout.php");
-	require("content.php");
 
   echo $header;
 

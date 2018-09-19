@@ -41,7 +41,17 @@ if (array_key_exists('category', $_GET)) {//books in one category
 } else {
   $row = strval($_GET['row']);
   if ($row == "category"){
-
+    echo "<h3>By Categories:</h3>";
+    echo "<div class='bookrow'>";
+      for ($i=0; $i<count($category);$i++){
+        echo "<div class='book'>";
+        echo "<a href='#' onclick='category(".$i.")'>";
+        echo "<img src='assets/media/img/category/".$i.".jpg' alt='Image'>";
+        echo "<p>$category[$i]</p>";
+        echo "</a>";
+        echo "</div>";
+      }
+    echo "</div>";
   } elseif ($row == "bestseller"){
 
   } elseif ($row == "newrelease") {
@@ -50,6 +60,5 @@ if (array_key_exists('category', $_GET)) {//books in one category
 
   }
 }
-
 
  ?>
