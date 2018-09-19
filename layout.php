@@ -15,6 +15,7 @@ $header = <<<HTML
   <link rel="icon" type="image/png" href="assets/media/img/icon.png"><!-- my bear -->
 	<!-- css -->
 	<link rel='stylesheet' type='text/css' href='assets/css/gui.css' />
+	<link rel='stylesheet' type='text/css' href='assets/css/form.css' />
 	<script src="assets/js/jquery-3.3.1.min.js"></script>
 	<script language = "javascript" type = "text/javascript"><!-- Ajax functions -->
 		// Ajax: display books in one category
@@ -104,6 +105,73 @@ $header = <<<HTML
 			home();
 		});
 
+		// Check and Get Cookies
+		function getCookie(cname) {
+		    var name = cname + "=";
+		    var decodedCookie = decodeURIComponent(document.cookie);
+		    var ca = decodedCookie.split(';');
+		    for(var i = 0; i <ca.length; i++) {
+		        var c = ca[i];
+		        while (c.charAt(0) == ' ') {
+		            c = c.substring(1);
+		        }
+		        if (c.indexOf(name) == 0) {
+		            return c.substring(name.length, c.length);
+		        }
+		    }
+		    return "";
+		}
+
+		// Load Login page
+		function login(){
+			if (getCookie("registeruser") == ""){
+				var ajaxRequest = new XMLHttpRequest();
+				ajaxRequest.onreadystatechange = function(){
+					if (this.readyState == 4 && this.status == 200){
+						$("#content").empty();//empty previous elements
+						$("#content").append(this.responseText);//append new elements
+						$("#account").text("New Account");
+						$("#account").attr("onclick","register()");
+					}
+				}
+				ajaxRequest.open("GET", "user.php?action=login", true);
+				ajaxRequest.send();
+			}
+		}
+
+		// Log out account
+		function logout(){
+			if (getCookie("registeruser") != ""){
+				var ajaxRequest = new XMLHttpRequest();
+				ajaxRequest.onreadystatechange = function(){
+					if (this.readyState == 4 && this.status == 200){
+						$("#account").text("Your Account");
+						$("#account").attr("onclick","login()");
+						home();
+					}
+				}
+				ajaxRequest.open("GET", "user.php?action=logout", true);
+				ajaxRequest.send();
+			}
+		}
+
+		// Sign up an account
+		function register(){
+			if (getCookie("registeruser") == ""){
+				var ajaxRequest = new XMLHttpRequest();
+				ajaxRequest.onreadystatechange = function(){
+					if (this.readyState == 4 && this.status == 200){
+						$("#content").empty();//empty previous elements
+						$("#content").append(this.responseText);//append new elements
+						$("#account").text("Login Account");
+						$("#account").attr("onclick","login()");
+					}
+				}
+				ajaxRequest.open("GET", "user.php?action=register", true);
+				ajaxRequest.send();
+			}
+		}
+
 	</script>
 </head>
 <body>
@@ -137,7 +205,7 @@ $header = <<<HTML
 		  <a href="#">Shop by</a>
 		  <a href="#">Sell</a>
 			<a href="#" style="float:right">Cart</a>
-			<a href="./pages/login.php" style="float:right">Your Account</a>
+			<a href="#" onclick="login()" id="account" style="float:right">Your Account</a>
 		</div>
 	</div><!-- End header-->
 HTML;
