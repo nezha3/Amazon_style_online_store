@@ -5,7 +5,7 @@ File:		  home.php
 Author:		Oliver Chi
 Purpose:	display content in homepage
 **************************************************/
-
+// HTML structure for left column
 echo "<div id='leftcolumn'><!-- left column for Category and Refine -->
         <div class='card'><!-- new releases -->
           <h3>New Releases</h3>
@@ -34,6 +34,7 @@ echo "<div id='leftcolumn'><!-- left column for Category and Refine -->
         </div>
       </div>";
 
+// HTML structure for right column
 echo "<div id='rightcolumn'><!-- right column for display books -->
 
         <div class='card'><!-- by Category -->

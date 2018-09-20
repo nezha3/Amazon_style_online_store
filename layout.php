@@ -139,6 +139,26 @@ $header = <<<HTML
 			}
 		}
 
+		// Login account
+		function loginAccount(email, key){
+			var ajaxRequest = new XMLHttpRequest();
+			ajaxRequest.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					var response = this.responseText;
+					if (response == "1"){
+						home();
+						$("#account").text("Logout Account");
+						$("#account").attr("onclick","logout()");
+					} else {
+						$("#loginMsg").text("Mismatch between email and key!!!")
+					}
+
+				}
+			}
+				ajaxRequest.open("GET", "user.php?action=loginAccount, email="+email+",key="+key, true);
+				ajaxRequest.send();
+		}
+
 		// Log out account
 		function logout(){
 			if (getCookie("registeruser") != ""){

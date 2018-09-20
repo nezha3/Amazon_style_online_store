@@ -16,6 +16,26 @@ function loadDB(){
   return $db;
 }
 
+// Go back previous page
+function goBack(){
+  if(isset($_REQUEST["destination"])){
+      header("Location: {$_REQUEST["destination"]}");
+  }else if(isset($_SERVER["HTTP_REFERER"])){
+      header("Location: {$_SERVER["HTTP_REFERER"]}");
+  }else{
+      header('Location: index.php');/* some fallback, maybe redirect to index.php */
+  }
+}
+
+// Establsih page cookie when not existed or change page location
+function pageCookie($page){
+  if (count($_COOKIE) > 0){
+    setcookie("page", $page, time() + (86400 * 30), "/");
+  } else {
+    echo "This website uses COOKIE, please enable COOKIE in your explorer.";
+  }
+}
+
 // Establish user cookie when not existed
 function userCookie($email){
   if (count($_COOKIE) > 0){
@@ -37,6 +57,14 @@ function loginCheck(){
 function getEmail(){
   if (isset($_COOKIE["registeruser"])) {
     return $_COOKIE["registeruser"];
+  }
+  return "";//if fail, return empty string
+}
+
+// Get page location
+function getPage(){
+  if (isset($_COOKIE["page"])) {
+    return $_COOKIE["page"];
   }
   return "";//if fail, return empty string
 }
