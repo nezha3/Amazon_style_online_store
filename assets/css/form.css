@@ -68,6 +68,7 @@ form input[type=submit]:hover {
 #loginMsg{
   color: red;
   font-size: 14px;
+  display: none;
 }
 
 

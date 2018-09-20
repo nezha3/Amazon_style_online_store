@@ -23,11 +23,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     pageCookie("home");// locate home page
     goBack();
   }
-
 } else {
   if (array_key_exists('action', $_GET)) {//if require actions
     $action = strval($_GET['action']);
     if ($action == "login"){//login action
+      $js = "<script>
+      $(function () {
+        $('form').on('submit', function (e) {<!-- AJAX form submission -->
+          $.ajax({
+            type: 'POST',
+            url: 'user.php',
+            data: $('form').serialize(),
+            success: function () {
+            }
+          });
+        });
+      });</script>";//for test: //loginAccount($('#email').val(), $('#password').val());//e.preventDefault();<!-- stop refresh page -->//action='user.php' method='post'//alert('form was submitted');//$('form').unbind('submit').submit();
+
       $login = "<div class='login'><!-- login container -->
                   <div class='login-row'><!-- login container row -->
                     <div class='login-text'><!-- login display text -->
@@ -35,13 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       <p>It is always free. No membership fee for ever. It is never too late to join Bear family. Cheer up guys ):</p>
                     </div>
                     <div class='login-form'><!-- login form -->
-                        <form id='login_submit' action='user.php' method='post'>
+                        <form id='login_submit' >
                           <h2>Login To Your Account</h2>
-                          <div class='form-group show-progress'>
-
-                          </div>
                           <div class='form-group'>
-                            <p id='loginMsg'></p>
+                            <p id='loginMsg'>Mismatched in inputs, please input correct email and password!</p>
                           </div>
                           <div class='form-group'>
                             <input type='email' name='email' id='email' class='form-control' placeholder='Enter Email/User Name...'>
@@ -61,9 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                   </div>
                 </div>";
+      echo $js;
       echo $login;
     } elseif ($action == "logout"){//logout action
-
+      setcookie("registeruser", "", time() - 36000, "/"); // delete user cookie
     } elseif ($action == "register"){//register action
       // Define variables and set to empty values
       $nameErr = ""; $emailErr = ""; $passwordErr = ""; $confirmErr = "";//error message for form input

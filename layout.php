@@ -101,10 +101,6 @@ $header = <<<HTML
 			//newreleases();
 		}
 
-		$('document').ready(function(){//when DOM complete, run homepage content
-			home();
-		});
-
 		// Check and Get Cookies
 		function getCookie(cname) {
 		    var name = cname + "=";
@@ -132,46 +128,35 @@ $header = <<<HTML
 						$("#content").append(this.responseText);//append new elements
 						$("#account").text("New Account");
 						$("#account").attr("onclick","register()");
+						if (getCookie("page") == "login"){
+							$('#loginMsg').css('display', 'block');
+						}
 					}
 				}
 				ajaxRequest.open("GET", "user.php?action=login", true);
 				ajaxRequest.send();
+			} else {
+				$("#account").text("Logout Account");
+				$("#account").attr("onclick","logout()");
 			}
-		}
-
-		// Login account
-		function loginAccount(email, key){
-			var ajaxRequest = new XMLHttpRequest();
-			ajaxRequest.onreadystatechange = function(){
-				if (this.readyState == 4 && this.status == 200){
-					var response = this.responseText;
-					if (response == "1"){
-						home();
-						$("#account").text("Logout Account");
-						$("#account").attr("onclick","logout()");
-					} else {
-						$("#loginMsg").text("Mismatch between email and key!!!")
-					}
-
-				}
-			}
-				ajaxRequest.open("GET", "user.php?action=loginAccount, email="+email+",key="+key, true);
-				ajaxRequest.send();
 		}
 
 		// Log out account
 		function logout(){
-			if (getCookie("registeruser") != ""){
-				var ajaxRequest = new XMLHttpRequest();
-				ajaxRequest.onreadystatechange = function(){
-					if (this.readyState == 4 && this.status == 200){
-						$("#account").text("Your Account");
-						$("#account").attr("onclick","login()");
-						home();
+			var r = confirm("Confirm: if you want to logout your account?");
+			if (r == true) {//go to logout
+				if (getCookie("registeruser") != ""){
+					var ajaxRequest = new XMLHttpRequest();
+					ajaxRequest.onreadystatechange = function(){
+						if (this.readyState == 4 && this.status == 200){
+							$("#account").text("Your Account");
+							$("#account").attr("onclick","login()");
+						}
 					}
+					ajaxRequest.open("GET", "user.php?action=logout", true);
+					ajaxRequest.send();
 				}
-				ajaxRequest.open("GET", "user.php?action=logout", true);
-				ajaxRequest.send();
+			} else {//keep unchanged
 			}
 		}
 
@@ -192,6 +177,32 @@ $header = <<<HTML
 			}
 		}
 
+		// load account management page
+		function account(){
+			if (getCookie("registeruser") != ""){
+				var ajaxRequest = new XMLHttpRequest();
+				ajaxRequest.onreadystatechange = function(){
+					if (this.readyState == 4 && this.status == 200){
+						$("#content").empty();//empty previous elements
+						$("#content").append(this.responseText);//append new elements
+
+					}
+				}
+				ajaxRequest.open("GET", "account.php", true);
+				ajaxRequest.send();
+			}
+		}
+
+		$('document').ready(function(){//when DOM complete, run homepage content
+			if (getCookie("page") == "login"){
+				login();
+			} else if (getCookie("page") == "home") {
+				login();
+				account();//load account management page
+			} else {
+				home();
+			}
+		});
 	</script>
 </head>
 <body>

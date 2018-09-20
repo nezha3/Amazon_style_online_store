@@ -29,7 +29,7 @@ function goBack(){
 
 // Establsih page cookie when not existed or change page location
 function pageCookie($page){
-  if (count($_COOKIE) > 0){
+  if (isset($_COOKIE)){
     setcookie("page", $page, time() + (86400 * 30), "/");
   } else {
     echo "This website uses COOKIE, please enable COOKIE in your explorer.";
@@ -38,7 +38,7 @@ function pageCookie($page){
 
 // Establish user cookie when not existed
 function userCookie($email){
-  if (count($_COOKIE) > 0){
+  if (isset($_COOKIE)){
     setcookie("registeruser", $email, time() + (86400 * 30), "/");
   } else {
     echo "This website uses COOKIE, please enable COOKIE in your explorer.";
@@ -71,7 +71,7 @@ function getPage(){
 
 // Set cart cookie
 function cartCookie($cartValue){
-  if (count($_COOKIE) > 0){
+  if (isset($_COOKIE)){
     setcookie("cart", json_encode($cartValue), time() + (86400 * 30), "/");
   } else {
     echo "This website uses COOKIE, please enable COOKIE in your explorer.";
