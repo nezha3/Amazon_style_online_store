@@ -118,6 +118,14 @@ $header = <<<HTML
 		    return "";
 		}
 
+		// Set Cookies
+		function setCookie(cname, cvalue, exdays) {//parameters: cookie name, cookie value, extra days
+		    var d = new Date();
+		    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		    var expires = "expires="+ d.toUTCString();
+		    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
 		// Load Login page
 		function login(){
 			if (getCookie("registeruser") == ""){
@@ -151,6 +159,14 @@ $header = <<<HTML
 						if (this.readyState == 4 && this.status == 200){
 							$("#account").text("Your Account");
 							$("#account").attr("onclick","login()");
+							if(getCookie("registeruser")!=""){
+								$("#welcome_msg").empty();
+								$("#welcome_msg").text("Welcome, "+getCookie("registeruser"));
+							} else {
+								$("#welcome_msg").empty();
+								$("#welcome_msg").text("Welcome, BookLover");
+							}
+							window.location = 'index.php';
 						}
 					}
 					ajaxRequest.open("GET", "user.php?action=logout", true);
@@ -185,7 +201,8 @@ $header = <<<HTML
 					if (this.readyState == 4 && this.status == 200){
 						$("#content").empty();//empty previous elements
 						$("#content").append(this.responseText);//append new elements
-
+						$("#account").text("Logout Your Account");
+						$("#account").attr("onclick","logout()");
 					}
 				}
 				ajaxRequest.open("GET", "account.php", true);
@@ -194,17 +211,24 @@ $header = <<<HTML
 		}
 
 		$('document').ready(function(){//when DOM complete, run homepage content
+			if(getCookie("registeruser")!=""){
+				$("#welcome_msg").empty();
+				$("#welcome_msg").text("Welcome, "+getCookie("registeruser"));
+			} else {
+				$("#welcome_msg").empty();
+				$("#welcome_msg").text("Welcome, BookLover");
+			}
+
 			if (getCookie("page") == "login"){//layout login pages
 				login();
-			} else if (getCookie("page") == "account") {//layout home page
-				login();
+			} else if (getCookie("page") == "account") {//layout account management page
 				account();//load account management page
-			}  else if (getCookie("page") == "home") {//layout search page
+			}  else if (getCookie("page") == "home") {//layout home page
 				home();
 			}  else if (getCookie("page") == "search") {//layout search page
 
 			} else {
-				home();
+				//home();
 			}
 		});
 	</script>
@@ -212,35 +236,43 @@ $header = <<<HTML
 <body>
 	<div id="header">
 		<div id="slogan">
-			<span> Better than Amazon!!!</span><!-- slogan -->
-			<img src="assets/media/img/brand.png" alt="AmazonBear">
-			<form id="searchbar" method="GET" action="./search.php">
-			  <select name="category"><!-- select search range based departments -->
-			    <option value="All">All</option>
-					<option value="0">$category[0]</option>
-					<option value="1">$category[1]</option>
-					<option value="2">$category[2]</option>
-					<option value="3">$category[3]</option>
-					<option value="4">$category[4]</option>
-					<option value="5">$category[5]</option>
-					<option value="6">$category[6]</option>
-					<option value="7">$category[7]</option>
-					<option value="8">$category[8]</option>
-					<option value="9">$category[9]</option>
-					<option value="10">$category[10]</option>
-					<option value="11">$category[11]</option>
-					}
-			  </select>
-				<input id="searchtextbox" value="" name="keyword" autocomplete="off" placeholder="" dir="auto" tabindex="6" type="text">
-				<input id="searchbutton" value="" tabindex="7" type="submit">
-			</form>
+			<div class="col-25">
+				<span> Better than Amazon!!!</span><!-- slogan -->
+				<img src="assets/media/img/brand.png" alt="AmazonBear">
+			</div>
+			<div class="col-75">
+				<form id="searchbar" method="GET" action="./search.php">
+				  <select name="category"><!-- select search range based departments -->
+				    <option value="All">All Categories</option>
+						<option value="0">$category[0]</option>
+						<option value="1">$category[1]</option>
+						<option value="2">$category[2]</option>
+						<option value="3">$category[3]</option>
+						<option value="4">$category[4]</option>
+						<option value="5">$category[5]</option>
+						<option value="6">$category[6]</option>
+						<option value="7">$category[7]</option>
+						<option value="8">$category[8]</option>
+						<option value="9">$category[9]</option>
+						<option value="10">$category[10]</option>
+						<option value="11">$category[11]</option>
+				  </select>
+					<input id="searchtextbox" value="" name="keyword" autocomplete="off" placeholder="" dir="auto" tabindex="6" type="text">
+					<input id="searchbutton" value="" tabindex="7" type="submit">
+				</form>
+			</div>
 		</div>
 		<div id="navbar"><!-- navigation bar -->
-		  <a href="index.php" onclick="home()">Home</a>
-		  <a href="#">Shop by</a>
-		  <a href="#">Sell</a>
-			<a href="#" style="float:right">Cart</a>
-			<a href="#" onclick="login()" id="account" style="float:right">Your Account</a>
+			<div class="col-25">
+				<span id="welcome_msg"></span>
+			</div>
+			<div class="col-50">
+			  <a href="index.php" onclick="setCookie('page', 'home', 1)">Home</a>
+			  <a href="#">Shop by</a>
+			  <a href="#">Sell</a>
+				<a href="#" style="float:right">Cart</a>
+				<a href="#" onclick="login()" id="account" style="float:right">Your Account</a>
+			</div>
 		</div>
 	</div><!-- End header-->
 HTML;

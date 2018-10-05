@@ -148,3 +148,4 @@ F. Installation:
 	please copy empty database and rename as 'db.sq3'. The file directory is at '/media/db/'.
 
 	3) Default administrator account is name {admin} key {usq-ict};
+	Pre-installed register user accounts are (in style 'email'/'password') 'oliver.chi@icloud.com'/'u1037192' and 'eleen.guan@icloud.com'/'Eleen123'.

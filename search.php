@@ -28,7 +28,7 @@ echo "<div id='content'><!-- content -->
                 <label>AND/OR</label>
               </div>
               <div class='col-20'>
-                <label>Option Search Field</label>
+                <label>Option Search Area</label>
               </div>
               <div class='col-20'>
                 <label>Search Content</label>
@@ -37,7 +37,7 @@ echo "<div id='content'><!-- content -->
             <div class='row'><!-- inputs -->
               <div class='col-20'>
                 <select id='field1' name='field1'>
-                  <option value=''>Search Entity</option>
+                  <option value=''>Search Entity Area</option>
                   <option value='title'>Book Title</option>
                   <option value='author'>Author</option>
                   <option value='date'>Publish Date</option>
@@ -47,7 +47,7 @@ echo "<div id='content'><!-- content -->
                 </select>
               </div>
               <div class='col-20'>
-                <input type='text' name='' placeholder='text/keywords'>
+                <input type='text' name='text1' placeholder='text/keywords'>
               </div>
               <div class='col-20'>
                 <select name='field2'>
@@ -57,7 +57,7 @@ echo "<div id='content'><!-- content -->
               </div>
               <div class='col-20'>
                 <select id='field3' name='field3'>
-                  <option value=''>Search Entity</option>
+                  <option value=''>Search Entity Area</option>
                   <option value='title'>Book Title</option>
                   <option value='author'>Author</option>
                   <option value='date'>Publish Date</option>
@@ -67,11 +67,11 @@ echo "<div id='content'><!-- content -->
                 </select>
               </div>
               <div class='col-20'>
-                <input type='text' name='' placeholder='text/keywords'>
+                <input type='text' name='text3' placeholder='text/keywords'>
               </div>
             </div>
             <div class='row'><!-- search button -->
-              <input type='submit' value='Search'>
+              <input type='submit' value='Search Books'>
             </div>
           </form>
         </div>

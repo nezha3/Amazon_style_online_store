@@ -17,24 +17,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $user = $result->fetchArray();
   if ($user == NULL){
     pageCookie("login");// locate login page
-    goBack();
+    goHome();
   } else {
     userCookie($email); // set registeruser cookie
     pageCookie("account");// locate home page of account management
-    goBack();
   }
 } else {
   if (array_key_exists('action', $_GET)) {//if require actions
     $action = strval($_GET['action']);
     if ($action == "login"){//login action
+      pageCookie("login");
       $js = "<script>
       $(function () {
-        $('form').on('submit', function (e) {<!-- AJAX form submission -->
+        $('#login_submit').on('submit', function (e) {<!-- AJAX form submission -->
           $.ajax({
             type: 'POST',
             url: 'user.php',
             data: $('form').serialize(),
-            success: function () {
+            success: function(data) {
+              window.location = 'index.php';
             }
           });
         });
@@ -74,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo $login;
     } elseif ($action == "logout"){//logout action
       setcookie("registeruser", "", time() - 36000, "/"); // delete user cookie
+      pageCookie("home");
     } elseif ($action == "register"){//register action
       // Define variables and set to empty values
       $nameErr = ""; $emailErr = ""; $passwordErr = ""; $confirmErr = "";//error message for form input
@@ -125,5 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 }
+
+$db->close();//close connection of database
 
 ?>

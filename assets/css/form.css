@@ -83,11 +83,6 @@ form input[type=submit]:hover {
   margin-left: auto;
   margin-right: auto;
 }
-.col-20{
-  float: left;
-  width: 20%;
-  margin-top: 6px;
-}
 form.center input, form.center select{
   text-align: center;
   height: 35px;

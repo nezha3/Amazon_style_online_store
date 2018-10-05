@@ -16,6 +16,13 @@ function loadDB(){
   return $db;
 }
 
+// Go homepage
+function goHome(){
+  header("Refresh:1; url=index.php");
+  header('Location: index.php');
+}
+
+
 // Go back previous page
 function goBack(){
   if(isset($_REQUEST["destination"])){
@@ -25,6 +32,7 @@ function goBack(){
   }else{
       header('Location: index.php');/* some fallback, maybe redirect to index.php */
   }
+  exit();
 }
 
 // Establsih page cookie when not existed or change page location
