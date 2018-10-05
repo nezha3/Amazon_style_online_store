@@ -13,6 +13,7 @@ Purpose:	First Page of Website
 	$uri .= $_SERVER['HTTP_HOST'];
 
 	require("libcommon.php");
+	pageCookie('home');//set page cookie
 	require("layout.php");
 
   echo $header;

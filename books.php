@@ -40,6 +40,7 @@ if (array_key_exists('category', $_GET)) {//books in one category
       echo "<div class='description'><p>".$book['description']."</p></div>";
     echo "</div>";
 } else {
+  pageCookie('home');//set page cookie
   $row = strval($_GET['row']);
   if ($row == "category"){
     echo "<h3>By Categories:</h3>";

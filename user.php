@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     goBack();
   } else {
     userCookie($email); // set registeruser cookie
-    pageCookie("home");// locate home page
+    pageCookie("account");// locate home page of account management
     goBack();
   }
 } else {

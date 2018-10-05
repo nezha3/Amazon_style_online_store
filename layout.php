@@ -194,11 +194,15 @@ $header = <<<HTML
 		}
 
 		$('document').ready(function(){//when DOM complete, run homepage content
-			if (getCookie("page") == "login"){
+			if (getCookie("page") == "login"){//layout login pages
 				login();
-			} else if (getCookie("page") == "home") {
+			} else if (getCookie("page") == "account") {//layout home page
 				login();
 				account();//load account management page
+			}  else if (getCookie("page") == "home") {//layout search page
+				home();
+			}  else if (getCookie("page") == "search") {//layout search page
+
 			} else {
 				home();
 			}
@@ -210,8 +214,8 @@ $header = <<<HTML
 		<div id="slogan">
 			<span> Better than Amazon!!!</span><!-- slogan -->
 			<img src="assets/media/img/brand.png" alt="AmazonBear">
-			<div id="searchbar">
-			  <select><!-- select search range based departments -->
+			<form id="searchbar" method="GET" action="./search.php">
+			  <select name="category"><!-- select search range based departments -->
 			    <option value="All">All</option>
 					<option value="0">$category[0]</option>
 					<option value="1">$category[1]</option>
@@ -227,12 +231,12 @@ $header = <<<HTML
 					<option value="11">$category[11]</option>
 					}
 			  </select>
-				<input id="searchtextbox" value="" name="field-keywords" autocomplete="off" placeholder="" dir="auto" tabindex="6" type="text">
+				<input id="searchtextbox" value="" name="keyword" autocomplete="off" placeholder="" dir="auto" tabindex="6" type="text">
 				<input id="searchbutton" value="" tabindex="7" type="submit">
-			</div>
+			</form>
 		</div>
 		<div id="navbar"><!-- navigation bar -->
-		  <a href="#" onclick="home()">Home</a>
+		  <a href="index.php" onclick="home()">Home</a>
 		  <a href="#">Shop by</a>
 		  <a href="#">Sell</a>
 			<a href="#" style="float:right">Cart</a>

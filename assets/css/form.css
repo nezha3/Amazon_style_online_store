@@ -14,7 +14,7 @@ form{
   margin: 1em 10px 0 10px;
 }
 
-form input{
+form input, form select{
   width: 100%;
   padding: 10px 10px 10px 40px;
   display: inline-block;
@@ -71,11 +71,25 @@ form input[type=submit]:hover {
   display: none;
 }
 
-
-
 /* signup form */
 .signup{
   margin: 50px 100px 10px 100px;
   padding: 0 100px 0 100px;
   text-align: center;
+}
+
+/* search form */
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+.col-20{
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+}
+form.center input, form.center select{
+  text-align: center;
+  height: 35px;
+  padding-left: 10px;
 }
