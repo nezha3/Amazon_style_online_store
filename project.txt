@@ -129,8 +129,9 @@ E. Media and Other Files
 					/form/*.png are images for rows in forms
 
 	2) CSS: /assets/css/
-					form.css is for forms of register or login
-					gui.css is for general pages
+					form.css is style design for forms of register or login
+					gui.css is styles for general pages
+					table.css is style design for tables
 
   3) database: /assets/db/
 					db.sq3 is the Sqlite3 database which this project users

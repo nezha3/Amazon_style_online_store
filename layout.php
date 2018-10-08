@@ -210,15 +210,18 @@ $header = <<<HTML
 			}
 		}
 
-		$('document').ready(function(){//when DOM complete, run homepage content
-			if(getCookie("registeruser")!=""){
+		// DOM Complete
+		$('document').ready(function(){//when DOM complete
+			// Check if registered user
+			if(getCookie("registeruser")!=""){//registered user
 				$("#welcome_msg").empty();
-				$("#welcome_msg").text("Welcome, "+getCookie("registeruser"));
-			} else {
+				$("#welcome_msg").text("Welcome, "+getCookie("registeruser"));//set welcome message
+			} else {//normal user
 				$("#welcome_msg").empty();
-				$("#welcome_msg").text("Welcome, BookLover");
+				$("#welcome_msg").text("Welcome, BookLover");//give general welcome message
 			}
 
+			// Decide which page to go (TODO: AJAX)
 			if (getCookie("page") == "login"){//layout login pages
 				login();
 			} else if (getCookie("page") == "account") {//layout account management page
@@ -229,6 +232,24 @@ $header = <<<HTML
 
 			} else {
 				//home();
+			}
+
+			// Check if cart cookie exits
+			if (getCookie("cart") == ""){//if not exits
+				$("#cart").text("Cart");//set text
+				$("#cart").css({'color': 'white', 'font-weight': 'normal' });//set font
+			} else {//if exits
+				var product_number = JSON.parse(getCookie("cart")).id.length;
+				$("#cart").css({'color': '#febd69', 'font-weight': 'bold' });//set font
+				if (product_number == 1){
+					$("#cart").text("Cart\\271");//1
+				} else if (product_number == 2){
+					$("#cart").text("Cart\\262");//2
+				} else if (product_number == 3){
+					$("#cart").text("Cart\\263");//3
+				} else {
+					$("#cart").text("Cart\\272\\u203a");//>
+				}
 			}
 		});
 	</script>
@@ -270,7 +291,7 @@ $header = <<<HTML
 			  <a href="index.php" onclick="setCookie('page', 'home', 1)">Home</a>
 			  <a href="#">Shop by</a>
 			  <a href="#">Sell</a>
-				<a href="#" style="float:right">Cart</a>
+				<a id="cart" href="./cart.php" style="float:right">Cart&#185;&#178;&#179;</a>
 				<a href="#" onclick="login()" id="account" style="float:right">Your Account</a>
 			</div>
 		</div>

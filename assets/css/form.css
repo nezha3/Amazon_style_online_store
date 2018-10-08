@@ -88,3 +88,10 @@ form.center input, form.center select{
   height: 35px;
   padding-left: 10px;
 }
+
+/* "add to order" form in cart page */
+#addtoorder{
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+}

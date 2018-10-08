@@ -36,18 +36,18 @@ function goBack(){
 }
 
 // Establsih page cookie when not existed or change page location
-function pageCookie($page){
+function pageCookie($p){
   if (isset($_COOKIE)){
-    setcookie("page", $page, time() + (86400 * 30), "/");
+    setcookie("page", $p, time() + (900), "/");//set page cookie timeout of 15 mins
   } else {
     echo "This website uses COOKIE, please enable COOKIE in your explorer.";
   }
 }
 
 // Establish user cookie when not existed
-function userCookie($email){
+function userCookie($e){
   if (isset($_COOKIE)){
-    setcookie("registeruser", $email, time() + (86400 * 30), "/");
+    setcookie("registeruser", $e, time() + (900), "/");//set user cookie timeout of 15 mins
   } else {
     echo "This website uses COOKIE, please enable COOKIE in your explorer.";
   }
@@ -78,9 +78,9 @@ function getPage(){
 }
 
 // Set cart cookie
-function cartCookie($cartValue){
+function cartCookie($c){
   if (isset($_COOKIE)){
-    setcookie("cart", json_encode($cartValue), time() + (86400 * 30), "/");
+    setcookie("cart", json_encode($c), time() + (86400 * 1), "/");//set out time of cart cookie as 1 day
   } else {
     echo "This website uses COOKIE, please enable COOKIE in your explorer.";
   }

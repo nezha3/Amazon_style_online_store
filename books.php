@@ -40,6 +40,7 @@ if (array_key_exists('category', $_GET)) {//books in one category
       }
       echo   "</select>
               <input type='submit' value='Add to Cart'>
+              <input type='text' name='id' value='$id' style='display: none;'>
             </form>";
     echo "</div>";
     echo "<div id='leftCol'>";//left column
