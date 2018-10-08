@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $password = $_POST["password"];
   $result = $db->query("SELECT * FROM user WHERE user.email = '".$email."' AND user.key = '".$password."'");//sql
   $user = $result->fetchArray();
+
   if ($user == NULL){
     pageCookie("login");// locate login page
     goHome();
@@ -26,7 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (array_key_exists('action', $_GET)) {//if require actions
     $action = strval($_GET['action']);
     if ($action == "login"){//login action
-      pageCookie("login");
+      if (getPage()!="login"){//check if it is first time to access login page
+        pageCookie("login_0");
+      }
+
       $js = "<script>
       $(function () {
         $('#login_submit').on('submit', function (e) {<!-- AJAX form submission -->

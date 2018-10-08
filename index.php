@@ -15,6 +15,9 @@ Purpose:	First Page of Website
 	require("libcommon.php");
 	require("layout.php");
 
+	//set home page cookie
+	pageCookie("home");
+
   echo $header;
 
 	echo $content;

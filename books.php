@@ -29,7 +29,18 @@ if (array_key_exists('category', $_GET)) {//books in one category
     $result = $db->query("SELECT * FROM product WHERE product.id == ".$id);//sql
     $book = $result->fetchArray();
     echo "<div id='rightCol'>";//right column
-      echo "<div class='price'><p>$".$book['price']."</p></div>";
+      echo "<p class='price'>$".$book['price']."</p>";
+      echo "<b>In stock.</b>
+            <p>Ships from and sold by AmazonBear AU. Gift-wrap available.</p>";
+      echo "<form method='GET' action='./cart.php'>
+              <b>Quantity</b>
+              <select name='quantity'>";
+      for ($i=1; $i<=100; $i++){
+        echo "<option value='".$i."'>".$i."</option>";
+      }
+      echo   "</select>
+              <input type='submit' value='Add to Cart'>
+            </form>";
     echo "</div>";
     echo "<div id='leftCol'>";//left column
       echo "<img src='assets/media/img/books/".$id.".jpg' alt='Image'>";

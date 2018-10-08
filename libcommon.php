@@ -19,7 +19,7 @@ function loadDB(){
 // Go homepage
 function goHome(){
   header("Refresh:1; url=index.php");
-  header('Location: index.php');
+  //header('Location: index.php');
 }
 
 
