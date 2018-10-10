@@ -9,7 +9,9 @@ Purpose:	display books in categories or others
 require("libcommon.php");//add common interfaces
 $db = loadDB(); //load database
 
-/* Get book/books */
+/*
+ * Display Books in One Category
+ */
 if (array_key_exists('category', $_GET)) {//books in one category
     $num = intval($_GET['category']);
     $result = $db->query("SELECT product.id, product.title FROM product WHERE product.category == ".$num);//sql
@@ -24,6 +26,9 @@ if (array_key_exists('category', $_GET)) {//books in one category
       echo "</div>";
     }
     echo "</div><!-- end of book rows -->";
+/*
+ * Display One Book with Comments
+ */
 } elseif (array_key_exists('id', $_GET)){//book in product.id
     $id = intval($_GET['id']);
     $result = $db->query("SELECT * FROM product WHERE product.id == ".$id);//sql
@@ -32,6 +37,7 @@ if (array_key_exists('category', $_GET)) {//books in one category
       echo "<p class='price'>$".$book['price']."</p>";
       echo "<b>In stock.</b>
             <p>Ships from and sold by AmazonBear AU. Gift-wrap available.</p>";
+      //form; TODO:add book to cart
       echo "<form method='GET' action='./cart.php'>
               <b>Quantity</b>
               <select name='quantity'>";
@@ -50,7 +56,23 @@ if (array_key_exists('category', $_GET)) {//books in one category
       echo "<div class='title'><h2>".$book['title']."</h2><p>".$book['author']."</p><p>".$book['date']."</p></div>";
       echo "<div class='brief'><p>".$book['brief']."</p></div>";
       echo "<div class='description'><p>".$book['description']."</p></div>";
+      echo "<div><b>Top customer reviews:</b></div><div id='comments' class='comments'></div>";
     echo "</div>";
+    //AJAX for displaying comments
+    echo "<script language = 'javascript' type = 'text/javascript'><!-- Ajax function TODO:comments for book -->
+  			var ajaxRequest = new XMLHttpRequest();
+  			ajaxRequest.onreadystatechange = function(){
+  				if (this.readyState == 4 && this.status == 200){
+  					$('#comments').empty();//empty previous elements
+  					$('#comments').append(this.responseText);//append new elements
+  				}
+  			}
+  			ajaxRequest.open('GET', 'comment.php?id='+$id, true);
+  			ajaxRequest.send();
+  		</script>";
+/*
+ * Display Books by Type in category/bestseller/newrelease
+ */
 } else {
   pageCookie('home');//set page cookie
   $row = strval($_GET['row']);
