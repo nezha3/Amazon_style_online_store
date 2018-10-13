@@ -634,6 +634,74 @@ Libby does not know how much more pain her already paper-thin heart can take and
     echo "error in the processing of product 36 info writing into database<br>";
   }
 
+  /* review */
+  $review = array(1, 36);
+  $review[0] = "Excellent! Smart, witty, fun. Great read for teens and tweens. (Best summer read or beach book.)";
+  $review[1] = "i 100% recommend this book.
+loved the writing and your pictures .
+And was extremely amazed that you are really are the perfect role model for me.
+And thank you for spending so much time on this book.
+To answer almost every one of our questions and finding the cutest pictures ever.
+love you";
+  $review[2] = "this book inspires me so much and i love the quizzes, fun diys, hair and makeup hacks, and of course the pictures at the end.
+#JENZIE";
+  $review[3] = "This book is so inspirational and includes advice on everything! I recommend this brilliant book by the outstanding singer, actress, dancer, model and author to all tween and teen girls.";
+  $review[4] = "This book is inspirational and a good laugh to boot! It shows the intense life of three morons and their emotional struggle to survive. The main character is Ed, who drives a cab around Sydney with little aspiration be become anything better, due in part to his upbringing. A series of events cause him to become a messenger which inturn causes lots of puzzles and disruptions in his life and those of his friends. I especially love Ed''s best friend ''Doorman'' who adds to this hilarious story. Support from your friends and family is so important in anyone''s life and can empower you especially when your problems seem unsolvable. ENJOY THIS GREAT READ!";
+  $review[5] = "Have read this several times now (with several years between each read). It''s so unique and enthralling and relatable. I can''t explain how I felt while reading this book, but very few other books have made me feel the same. Would be a good read for anyone who likes to read stories that have multiple levels of depth to it (i.e. if you chose to ignore the deep, more serious parts of the book, it''s still an enjoyable read, but you would be missing out on some very thought-provoking ideas)";
+  $review[6] = "A young man is witness to a bank robbery and his life changes in unexpected ways. We meet a number of characters with no apparent link to each other but bit by bit we see a grand design bringing them closer. It is hard to say much without giving away the plot.
+It is an excellent book which I found compelling. Really unique plot and well written. My heart went out to some characters. thers needed a good talking to!
+i really recommend this book. It would be fun to discuss it with friens too.";
+  $review[7] = "For me I found this book and game changer. It inspired me to take a leap of faith and tell someone how wonderful I really think they are. It gave me the courage to face a tough time in my marriage. It showed me that no matter how insignifcant you may feel inside by doing small things you can make a difference in your life and a positive difference in someone else''s. I loved the book and couldn''t put it down. It came at a really good time in my life.";
+  $review[8] = "An enjoyable book to read. Even though most of the ''messages'' were for a good cause, the situations and their solutions were a bit unreal. The overall impression and message to the reader at the end of the book however are worthwhile.";
+  $review[9] = "An easy book to read but always has you guessing what is going to happen next. Definitely recommend this book";
+  $review[10] = "Reynolds inspires the reader to take a risk and try something one has never done before, in order to discover new things about oneself. THE DOT gives a big hug to budding artists and shows how to encourage others. My favorite line is, ''Vashti even made a dot by NOT painting a dot.'' This sentence gave opportunity to discuss various ways to make a dot, opening up the imagination of young minds. I have to say, it took some time to turn the page because everyone wanted to be heard. I love books that help children see possibilities in their own talents.";
+  $review[11] = "A must read for my kinders at the beginning of the year! Vashti learns that he can do anything if he never gives up. Vashti then learns to encourage others the same way his teacher encouraged him. Many year long references to never give up can be made after reading this book.";
+  $review[12] = "I loved the movie so much, I had to read the book. It did not disappoint! It is written in such a way that one lives it with the characters. Even knowing the story, I still re-experienced it in that way, and the emotional journey was the same. Characters you really care about!";
+  $review[13] = "A thoroughly great ''read''. One Dy is London of the 80s 90s and this new century. It is a light hearted laugh at the phoney world of the twenty and thirty somethings of this generation and yet there are moments of tenderness that are a ju";
+  $review[14] = "I am a re-reader and Blue Smoke is like chicken soup for me in the best possible way 😄";
+  $review[15] = "Excellent story line which made me want to research the background";
+  $review[16] = "Couldn’t get into this book found it boring. Only read a few chapters might give it a go ata later date.";
+  $review[17] = "Thoroughly enjoyed reading this book. I couldn''t put this book down. Very easy reading.";
+  $review[18] = "What an absolute breath of fresh air. I loved the characters in this book, particularly Eleanor and Raymond. It was beautifully written and had you teary one minute, then the next chuckling or straight out laughing out loud. I loved Eleanor’s very correct way of speaking, how proper her language was...you could almost imagine her speaking to you and being very entertained. I would love a sequel, I know, a bit boring, but I would enjoy seeing her make a life with Raymond. I was hoping till the end that would happen. Funny isn’t it, how absorbed you get in characters from a book and want a happy life ending for fictitious people? That’s the joy of getting lost in rich characters.";
+  $review[19] = "The book was unlike anything I usually read - being a murder mystery fan usually but I saw the reviews and thought why not. I can honestly say It''s one of the best books I have ever read. I saw bits of Eleanor in myself and other people I know. It was so easy to read and so hard to out aside to do other things that needed doing. Highly recommended";
+  $review[20] = "Eleanor is a triumph. A damaged, broken person who ever so slowly blooms without you realising what you''re a witness to. It feels privileged to be a part of. An honour, dusted with both heartache and out loud hilarity. The emotional insights are sharp, acute and accurate. A painful, joyous must read.";
+  $review[21] = "Not perfect,not precious literature, but what a story! At first we snigger at this eccentric misfit.Whats with her- ;Asperger''s? Then we learn about the lonely weekends sustained only by alcohol. And as the layers are slowly peeled away we realize she knows only violence,cruelty and indifference and is deeply traumatized.She''s slowly and painfully rescued by someone she initially disrespects and virtually ignores, but who is aided by his family. And although Eleanor still doesn''t realize it even at the end of the book, we are aware that her rescue is no accident, and sometimes must have been a thankless task, but is eventually rewarded. This is a story about the power of the best kind of love: Caring. .
+";
+  $review[22] = "I was looking for a summer holiday read recently and came across this book. Read the reviews and purchased it, I was hooked from the first page and devoured it!. A wonderful well written read book.
+Detached, likeable, quirky and honest would best describe Eleanor. This book resonates with you well after you have finished it, as the reader comes to love Eleanor and it is difficult to let go and say goodbye to such a wonderful story & character. Well done to Gail Honeyman on her debut book & I shall certainly be looking for her next publications.Highly recommended.";
+  $review[23] = "This is a must read book. I was cautious to start given all the raving reviews but this book is divine. Eleanor is the character of this year that you won’t be able to stop thinking about- she’s honest, real and I’m sure everyone will relate to parts of her. Get ready to laugh and cry in this beautiful read.";
+  $review[24] = "There were so many amazing scenes in this book. Scenes that left you gasping, and hoping and pleading. Scenes that made you cry, with sadness, and some with happiness. The range of emotions I experienced while reading this book was almost unfathomable, and Laini Taylor did that.";
+  $review[25] = "I enjoyed the journey through this great novel. The author takes you through his perspective of an amazing historic image. That world, to my simple understanding, remained so steady and constant for many centuries. Post Reformation and Enlightenment things changed so dramatically.
+My first attempt at this book was in the Dark Ages before the Internet. This time, even with online resources the historic and multilingual references were almost impenetrable. I need to find a good companion guide next time I pick this book up.";
+  $review[26] = "I really did enjoy this book, for it characterisation, plot and view into the lives of mediaeval monks. However, I found the politics surrounding the story hard to follow and the use of Latin without translation alienated me from the text.";
+  $review[27] = "I''m very tired and very exhausted by this book. But it was also very good.
+The nutshell is this is a murder mystery set in a fourteenth century Benedictine abbey, with Franciscan monk William of Baskerville and his Benedictine novice Adso of Melk on the case. And it''s genuinely fun! A Holmesian romp set in medieval paranoia. But everything in this book is a conceit; the entire abbey vibrates with a deconstructive menace. Behind the beautifully described murals, the rich and perversely interesting history of the persecution of mendicant monks, and even the trappings of a wicked murder plot, there is a nagging metafiction suggestion that what you see is wrong, and darkness is inevitable.";
+  $review[28] = "The mystery and the setting are intriguing. Much of the story, however, is weighed down by long, rambling, unnecessary descriptions and expositions. At first, some of them are interesting, but this book is nearly 600 pages long. It would have been much better if it were 350 pages. Instead of describing four or five items (like images on a church door or sacred relics) that give the reader a complete idea, the writer routinely literally describes 25-30 items, sometimes in long lists! The same occurs with historical details. What could effectively be said with precision becomes confusing, boring, and tedious because the writer is so circumlocutory.";
+  $review[29] = "I love this book, much as I love the movie it inspired, mostly for the world it so vividly recreates: a 14th-century monastery in the mountains of northern Italy, populated by monks, peasants – and an apparent serial killer. Although this medieval community is a great place to visit in a book, you probably wouldn’t want to live there. Not unless you enjoy fetching water from wells, laboring from dawn to dusk, and adhering to the strict lifestyle of a monk.";
+  $review[30] = "I have enjoyed reading Less more than most books I have read this year. It has a charm and quirky humour and satisfying wit that is surprisingly uplifting ...it is a gay man''s story but I do not think you need to be gay to enjoy it, though I guess it adds a delicious dimension if you are. It is romantic and whimsical at times but self deprecating at others, and quietly incisive in its observations of relationships, ageing, work, and travel. My tip...don''t miss it!";
+  $review[31] = "What a surprising delight!
+I loved this novel, I loved Less with all his eccentricities and vanities, but more than that I enjoyed Greer’s writing, his beautiful and original similes, the wonderful evocation of place, the sudden surprise of laughter at odd moments and the poignancy that left me smiling with unshed tears. Worth reading aloud just to share the joy!";
+  $review[32] = "This story got better as it went, with new layers of meaning adding depth to something that seemed light and pithy to begin with. I loved the suggestion of Deus ex machina (I think that’s what I mean!) as the protagonist’s own novel seems to follow the same path as the story I am reading, like a window into the making of the novel within the novel.";
+  $review[33] = "I loved the language used. I also loved the way the author revealed Arthur Less''s character - in the beginning, he wasn''t particularly likeable, but I became quite fond of him as the novel progressed. I would highly recommend this book.";
+  $review[34] = "Less is a book that grows on you & Arthur Less is an unique character who has been in my thoughts days after finishing the book.";
+  $review[35] = "Sweet, beguiling, witty and beautifully written. A tale of self discovery as two men veer toward love. Read it soon!";
+  for ($i=0; $i<36;$i++){
+    $id = 10000001 + $i;
+    $productid = 10000001 + $i;
+    $uerid = 10000002 - $i%2;
+    $star = ($i+1)%5;
+    $sql_review = "INSERT INTO review (id, userid, productid, star, comment) VALUES ($id, $uerid, $productid, $star, '$review[$i]')";
+    if ($db->exec($sql_review)){
+      echo "review $i info writes into database successfully<br>";
+    } else {
+      echo "error in the processing of review $i info writing into database<br>";
+    }
+  }
+
+
+
+
+
 // Close database
   $db->close();
 

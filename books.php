@@ -56,20 +56,8 @@ if (array_key_exists('category', $_GET)) {//books in one category
       echo "<div class='title'><h2>".$book['title']."</h2><p>".$book['author']."</p><p>".$book['date']."</p></div>";
       echo "<div class='brief'><p>".$book['brief']."</p></div>";
       echo "<div class='description'><p>".$book['description']."</p></div>";
-      echo "<div><b>Top customer reviews:</b></div><div id='comments' class='comments'></div>";
+      echo "<div id='review'><img src='assets/media/img/open.png' alt='show comments' onclick='comments($id)'><b onclick='comments($id)'>&nbsp;&nbsp;Customer reviews:</b><div id='comments' class='comments'></div></div>";
     echo "</div>";
-    //AJAX for displaying comments
-    echo "<script language = 'javascript' type = 'text/javascript'><!-- Ajax function TODO:comments for book -->
-  			var ajaxRequest = new XMLHttpRequest();
-  			ajaxRequest.onreadystatechange = function(){
-  				if (this.readyState == 4 && this.status == 200){
-  					$('#comments').empty();//empty previous elements
-  					$('#comments').append(this.responseText);//append new elements
-  				}
-  			}
-  			ajaxRequest.open('GET', 'comment.php?id='+$id, true);
-  			ajaxRequest.send();
-  		</script>";
 /*
  * Display Books by Type in category/bestseller/newrelease
  */

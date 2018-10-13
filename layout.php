@@ -210,6 +210,31 @@ $header = <<<HTML
 			}
 		}
 
+		//AJAX for displaying comments
+    // TODO:comments for book
+		function comments(id){
+			var ajaxRequest = new XMLHttpRequest();
+			ajaxRequest.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					$('#comments').empty();//empty previous elements
+					$('#review img').attr('src','assets/media/img/close.png');//change open image
+					$('#review img').attr('onclick','comments_close('+id+')');//change onclick function
+					$('#review b').attr('onclick','comments_close('+id+')');//change onclick function
+					$('#comments').append(this.responseText);//append new elements
+				}
+			}
+			ajaxRequest.open('GET', 'comment.php?id='+id, true);
+			ajaxRequest.send();
+		}
+
+		//AJAX: close display of comments
+		function comments_close(id){
+			$('#comments').empty();//empty elements
+			$('#review img').attr('src','assets/media/img/open.png');//change open image
+			$('#review img').attr('onclick','comments('+id+')');//change onclick function
+			$('#review b').attr('onclick','comments('+id+')');//change onclick function
+		}
+
 		// DOM Complete
 		$('document').ready(function(){//when DOM complete
 			// Check if registered user

@@ -28,13 +28,16 @@ $db = loadDB(); //load database
  */
 $book_id = strval($_GET['id']);//book id
 // Retrieve all comments for one book from database
-$result = $db->query("SELECT review.id, review.userid, review.star, review.comment FROM review WHERE review.productid == ".$book_id);//sql
+$result = $db->query("SELECT review.id, review.userid, review.star, review.comment FROM review WHERE review.productid == ".$book_id);//sql: get comments
 // Print out every comment
 while($comment = $result->fetchArray()){
   echo "<div class='comment'>";
     echo "<img src='assets/media/img/person.png' alt='Image'>";
-    echo "<span>".$comment['userid']."</span>";
-    echo "<span id='errorMsg'></span>";
+    $result2 = $db->query("SELECT * FROM user WHERE user.id == ".$comment['userid']);//sql: get user info
+    while($user = $result2->fetchArray()){
+      echo "<span>".$user['name']."</span>";
+    }
+    while ($comment['star'])
     echo "<p>".$comment['star']."</p>";
     echo "<p>".$comment['id']."</p>";
     echo "<p>".$comment['comment']."</p>";
@@ -42,6 +45,7 @@ while($comment = $result->fetchArray()){
   echo "</div>";
 }
 echo "<input type='button' value='add'>";
+echo "<p id='errorMsg'></p>";
 
 $db->close();//close connection of database
 
