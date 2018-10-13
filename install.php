@@ -689,7 +689,7 @@ I loved this novel, I loved Less with all his eccentricities and vanities, but m
     $id = 10000001 + $i;
     $productid = 10000001 + $i;
     $uerid = 10000002 - $i%2;
-    $star = ($i+1)%5;
+    $star = $i%5+1;
     $sql_review = "INSERT INTO review (id, userid, productid, star, comment) VALUES ($id, $uerid, $productid, $star, '$review[$i]')";
     if ($db->exec($sql_review)){
       echo "review $i info writes into database successfully<br>";

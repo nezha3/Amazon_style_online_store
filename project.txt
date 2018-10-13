@@ -124,6 +124,11 @@ E. Media and Other Files
 					brand.png is the brand image of this website
 					icon.png is the icon picture of this website
 					search.png is the image for search button
+					star.png presents stars for registered user's review
+					star2.png presents empty star for review
+					person.png presents users figure
+					open.png illustrates opening operation for elements
+					close.png illustrates closing operation for elements
 					/category/*.jpg are sample images for books in specific category
 					/books/*.jpg are sample pictures for all books
 					/form/*.png are images for rows in forms

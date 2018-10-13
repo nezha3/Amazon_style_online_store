@@ -15,11 +15,12 @@ $db = loadDB(); //load database
  */
  // Registered user
  if (loginCheck()){//TODO
-
-
+   $delete_button = "<input type='button' value='Delete Current Comment' class='delete_button'>";
+   $add_button = "<input type='button' value='Add New Comment' class='add_button'>";
  // General user
 } else {//display error message
-
+   $delete_button = "";
+   $add_button = "";
 }
 
 
@@ -37,14 +38,23 @@ while($comment = $result->fetchArray()){
     while($user = $result2->fetchArray()){
       echo "<span>".$user['name']."</span>";
     }
-    while ($comment['star'])
-    echo "<p>".$comment['star']."</p>";
-    echo "<p>".$comment['id']."</p>";
+    echo $delete_button;
+    echo "<p>";//print stars
+    $i = $comment['star'];
+    while ($i){
+      echo "<img src='assets/media/img/star.png' alt='*'>";//stars
+      $i--;
+    }
+    $i = 5 - $comment['star'];
+    while ($i){
+      echo "<img src='assets/media/img/star2.png' alt=''>";//empty stars
+      $i--;
+    }
+    echo "</p>";
     echo "<p>".$comment['comment']."</p>";
-    echo "<input type='button' value='delete'>";
   echo "</div>";
 }
-echo "<input type='button' value='add'>";
+echo $add_button;
 echo "<p id='errorMsg'></p>";
 
 $db->close();//close connection of database

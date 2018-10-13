@@ -136,8 +136,10 @@ $header = <<<HTML
 						$("#content").append(this.responseText);//append new elements
 						$("#account").text("New Account");
 						$("#account").attr("onclick","register()");
-						if (getCookie("page") == "login"){
+						if (getCookie("page") == "login_0"){
 							$('#loginMsg').css('display', 'block');
+						} else {
+							$('#loginMsg').css('display', 'none');
 						}
 					}
 				}
@@ -161,7 +163,7 @@ $header = <<<HTML
 							$("#account").attr("onclick","login()");
 							if(getCookie("registeruser")!=""){
 								$("#welcome_msg").empty();
-								$("#welcome_msg").text("Welcome, "+getCookie("registeruser"));
+								$("#welcome_msg").text("Welcome, "+getCookie("name"));
 							} else {
 								$("#welcome_msg").empty();
 								$("#welcome_msg").text("Welcome, BookLover");
@@ -240,14 +242,14 @@ $header = <<<HTML
 			// Check if registered user
 			if(getCookie("registeruser")!=""){//registered user
 				$("#welcome_msg").empty();
-				$("#welcome_msg").text("Welcome, "+getCookie("registeruser"));//set welcome message
+				$("#welcome_msg").text("Welcome, "+getCookie("name"));//set welcome message
 			} else {//normal user
 				$("#welcome_msg").empty();
 				$("#welcome_msg").text("Welcome, BookLover");//give general welcome message
 			}
 
 			// Decide which page to go (TODO: AJAX)
-			if (getCookie("page") == "login"){//layout login pages
+			if (getCookie("page") == "login" || getCookie("page") == "login_0"){//layout login pages
 				login();
 			} else if (getCookie("page") == "account") {//layout account management page
 				account();//load account management page
@@ -273,7 +275,7 @@ $header = <<<HTML
 				} else if (product_number == 3){
 					$("#cart").text("Cart\\263");//3
 				} else {
-					$("#cart").text("Cart\\272\\u203a");//>
+					$("#cart").text("Cart\\u00BB");//\\272\\u203a");//>
 				}
 			}
 		});
@@ -310,13 +312,13 @@ $header = <<<HTML
 		</div>
 		<div id="navbar"><!-- navigation bar -->
 			<div class="col-25">
-				<span id="welcome_msg"></span>
+				<span id="welcome_msg">Welcome, BookLover></span>
 			</div>
 			<div class="col-50">
 			  <a href="index.php" onclick="setCookie('page', 'home', 1)">Home</a>
 			  <a href="#">Shop by</a>
 			  <a href="#">Sell</a>
-				<a id="cart" href="./cart.php" style="float:right">Cart&#185;&#178;&#179;</a>
+				<a id="cart" href="./cart.php" style="float:right">Cart</a>
 				<a href="#" onclick="login()" id="account" style="float:right">Your Account</a>
 			</div>
 		</div>

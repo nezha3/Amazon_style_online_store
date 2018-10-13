@@ -17,20 +17,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $user = $result->fetchArray();
 
   if ($user == NULL){
-    pageCookie("login");// locate login page
+    pageCookie("login_0");// locate login page again
     goHome();
   } else {
     userCookie($email); // set registeruser cookie
+    nameCookie($user['name']); // set name cookie
     pageCookie("account");// locate home page of account management
   }
 } else {
   if (array_key_exists('action', $_GET)) {//if require actions
     $action = strval($_GET['action']);
     if ($action == "login"){//login action
-      if (getPage()!="login"){//check if it is first time to access login page
-        pageCookie("login_0");
+      if (getPage()!="login_0"){
+        pageCookie("login");
       }
-
       $js = "<script>
       $(function () {
         $('#login_submit').on('submit', function (e) {<!-- AJAX form submission -->
@@ -79,8 +79,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo $login;
     } elseif ($action == "logout"){//logout action
       setcookie("registeruser", "", time() - 36000, "/"); // delete user cookie
+      setcookie("name", "", time() - 36000, "/"); // delete name cookie
       pageCookie("home");
     } elseif ($action == "register"){//register action
+      if (getPage()=="login_0"){
+        pageCookie("login");
+      }
       // Define variables and set to empty values
       $nameErr = ""; $emailErr = ""; $passwordErr = ""; $confirmErr = "";//error message for form input
       $name = ""; $email = ""; $password = ""; $confirm = "";//input values

@@ -44,6 +44,23 @@ function pageCookie($p){
   }
 }
 
+// Get register user email
+function getEmail(){
+  if (isset($_COOKIE["registeruser"])) {
+    return $_COOKIE["registeruser"];
+  }
+  return "";//if fail, return empty string
+}
+
+// Establish name cookie when not existed
+function nameCookie($e){
+  if (isset($_COOKIE)){
+    setcookie("name", $e, time() + (900), "/");//set name cookie timeout of 15 mins
+  } else {
+    echo "This website uses COOKIE, please enable COOKIE in your explorer.";
+  }
+}
+
 // Establish user cookie when not existed
 function userCookie($e){
   if (isset($_COOKIE)){
@@ -59,14 +76,6 @@ function loginCheck(){
     return 1;//true
   }
   return 0;//false
-}
-
-// Get register user email
-function getEmail(){
-  if (isset($_COOKIE["registeruser"])) {
-    return $_COOKIE["registeruser"];
-  }
-  return "";//if fail, return empty string
 }
 
 // Get page location

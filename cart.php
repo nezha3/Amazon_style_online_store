@@ -72,7 +72,7 @@ $db = loadDB(); //load database
 				$totalprice = $totalprice + (float)$book['price']*((float)($cartValue->quantity[$i]));
 			}
 		}
-		echo "<tr><td> </td><td> </td><td>Total:</td><td>$".(string)$totalprice."</td></tr></table>";
+		echo "<tr><td> </td><td> </td><td> </td><td>Total:</td><td>$".(string)$totalprice."</td></tr></table>";
 		echo "<input id='addtoorder' type='submit' value='Add Them To Order'>";
 		echo "</form>";
 	} else {
