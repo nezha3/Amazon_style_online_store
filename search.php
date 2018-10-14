@@ -14,6 +14,72 @@ pageCookie('search');//set page cookie
 //clear contents
 require("layout.php");
 echo $header;
+echo "<script language = 'javascript' type = 'text/javascript'>
+          function check_inputs(){
+            $('.error_msg').empty();
+            if ($('#field1').val() == '' && $('#text1').val() == '' && $('#field3').val() == '' && $('#text3').val() == ''){//if no input
+              $('.error_msg').text('Please input your reseach content!');
+            } else {//input desn't form one reseach condition
+              if (!($('#field1').val() != '' && $('#text1').val() != '') && !($('#field1').val() == '' && $('#text1').val() == '')){
+                $('.error_msg').text('Missing at least one complete research condition, please recheck your input!');
+              }
+              if (!($('#field3').val() != '' && $('#text3').val() != '') && !($('#field3').val() == '' && $('#text3').val() == '')){
+                $('.error_msg').text('Missing at least one complete research condition, please recheck your input!');
+              }
+              if ($('#field1').val() != $('#field3').val()){//or operation for divided search objectives
+                $('#field2 option.and').removeAttr('disabled', '');
+                $('#field2 option.or').removeAttr('selected', '');
+                $('#field1 option.price').removeAttr('disabled', '');
+                $('#field3 option.price').removeAttr('disabled', '');
+                $('#field1 option.date').removeAttr('disabled', '');
+                $('#field3 option.date').removeAttr('disabled', '');
+                if (($('#field1').val() == 'keyword') || ($('#field3').val() == 'keyword') ){//check key inputs
+                  $('#field1 option.key').attr('selected', '');
+                  $('#field3 option.key').attr('selected', '');
+                }
+              } else {
+                if ($('#field1').val() == 'title'){//or operation for same search objective
+                  $('#field2 option.and').attr('disabled', '');
+                  $('#field2 option.or').attr('selected', '');
+                }
+                if ($('#field1').val() == 'author'){//or operation for same search objective
+                  $('#field2 option.and').attr('disabled', '');
+                  $('#field2 option.or').attr('selected', '');
+                }
+              }
+            }
+            if ( $('#field1').val() == 'date' ){//no two date
+              $('#field3 option.date').attr('disabled', '');
+            }
+            if ( $('#field3').val() == 'date' ){//no two date
+              $('#field1 option.date').attr('disabled', '');
+            }
+            if ( $('#field1').val() == 'price' ){//no two price
+              $('#field3 option.price').attr('disabled', '');
+            }
+            if ( $('#field3').val() == 'price' ){//no two price
+              $('#field1 option.price').attr('disabled', '');
+            }
+            if ($('#field1').val() == 'author' && matchExpression($('#text1').val()).containsNumber){//check name inputs
+              $('.error_msg').text('Author name is invalid, please recheck your input!');
+            }
+            if ($('#field3').val() == 'author' && matchExpression($('#text3').val()).containsNumber){//check name inputs
+              $('.error_msg').text('Author name is invalid, please recheck your input!');
+            }
+            if ($('#field1').val() == 'price' && !matchExpression($('#text1').val()).onlyNumbers){//check price inputs
+              $('.error_msg').text('Price is invalid, please recheck your input!');
+            }
+            if ($('#field3').val() == 'price' && !matchExpression($('#text3').val()).onlyNumbers){//check price inputs
+              $('.error_msg').text('Price is invalid, please recheck your input!');
+            }
+            if ($('#field1').val() == 'date' && !matchExpression($('#text1').val()).dateddmmyy){//check date inputs
+              $('.error_msg').text('Date is invalid, please recheck your input!');
+            }
+            if ($('#field3').val() == 'date' && !matchExpression($('#text3').val()).dateddmmyy){//check date inputs
+              $('.error_msg').text('Date is invalid, please recheck your input!');
+            }
+          }
+      </script>";
 echo "<div id='content'><!-- content -->
         <div class='card'><!-- search form -->
           <form class='center'>
@@ -36,38 +102,36 @@ echo "<div id='content'><!-- content -->
             </div>
             <div class='row'><!-- inputs -->
               <div class='col-20'>
-                <select id='field1' name='field1'>
+                <select id='field1' name='field1' onchange='check_inputs()'>
                   <option value=''>Search Entity Area</option>
                   <option value='title'>Book Title</option>
                   <option value='author'>Author</option>
-                  <option value='date'>Publish Date</option>
-                  <option value='category'>Category</option>
-                  <option value='keyword'>Keyword</option>
-                  <option value='price'>Price</option>
+                  <option class='date' value='date'>Publish Date(After DDMMYYYY)</option>
+                  <option class='key' value='keyword'>Keyword</option>
+                  <option class='price' value='price'>Price(less than $)</option>
                 </select>
               </div>
               <div class='col-20'>
-                <input type='text' name='text1' placeholder='text/keywords'>
+                <input type='text' id='text1' name='text1' placeholder='text/keywords' onchange='check_inputs()'>
               </div>
               <div class='col-20'>
-                <select name='field2'>
-                  <option value='AND'>AND</option>
-                  <option value='OR'>OR</option>
+                <select id='field2' name='field2' onchange='check_inputs()'>
+                  <option class='and' value='AND'>AND</option>
+                  <option class='or' value='OR'>OR</option>
                 </select>
               </div>
               <div class='col-20'>
-                <select id='field3' name='field3'>
+                <select id='field3' name='field3' onchange='check_inputs()'>
                   <option value=''>Search Entity Area</option>
                   <option value='title'>Book Title</option>
                   <option value='author'>Author</option>
-                  <option value='date'>Publish Date</option>
-                  <option value='category'>Category</option>
-                  <option value='keyword'>Keyword</option>
-                  <option value='price'>Price</option>
+                  <option class='date' value='date'>Publish Date(After DDMMYYYY)</option>
+                  <option class='key' value='keyword'>Keyword</option>
+                  <option class='price' value='price'>Price(less than $)</option>
                 </select>
               </div>
               <div class='col-20'>
-                <input type='text' name='text3' placeholder='text/keywords'>
+                <input type='text' id='text3' name='text3' placeholder='text/keywords' onchange='check_inputs()'>
               </div>
             </div>
             <div class='row'><!-- search button -->
@@ -75,7 +139,7 @@ echo "<div id='content'><!-- content -->
             </div>
           </form>
         </div>
-        <div class='card'><!-- search result-->";
+        <div class='card'><!-- search result--><p class='error_msg'></p>";
 
 // only for test TODO: check all elements submitted by form
 /*
@@ -96,7 +160,8 @@ echo "</table>";
 /* check if complex search */
 if (array_key_exists('field1', $_GET)) {//complex search
   $field1 = strval($_GET['field1']);//get field1
-  if($field1==""){
+  $text1 = strval($_GET['text1']);//get field1
+  if($field1==""||$text1==""){
     echo "<p class='error_msg'>The first search area is compulsory, please recheck your input!</p>";
   }
 } else {//simple search
