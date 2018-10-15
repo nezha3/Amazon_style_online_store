@@ -16,7 +16,7 @@ Purpose:	First Page of Website
 	require("layout.php");
 
 	//set home page cookie
-	//pageCookie("home");
+	if (getPage() == "") pageCookie("home");
 
   echo $header;
 

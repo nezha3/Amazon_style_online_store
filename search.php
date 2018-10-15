@@ -14,9 +14,12 @@ pageCookie('search');//set page cookie
 //clear contents
 require("layout.php");
 echo $header;
-echo "<script language = 'javascript' type = 'text/javascript'>
+echo "<!-- Validation of Inputs of Complex Search -->
+  <script language = 'javascript' type = 'text/javascript'>
+          // Validation of Inputs
           function check_inputs(){
-            $('.error_msg').empty();
+            $('.error_msg').empty();//empty previous error message
+            $('#complex_search').removeAttr('disabled');//enable submit button
             if ($('#field1').val() == '' && $('#text1').val() == '' && $('#field3').val() == '' && $('#text3').val() == ''){//if no input
               $('.error_msg').text('Please input your reseach content!');
             } else {//input desn't form one reseach condition
@@ -78,6 +81,9 @@ echo "<script language = 'javascript' type = 'text/javascript'>
             if ($('#field3').val() == 'date' && !matchExpression($('#text3').val()).dateddmmyy){//check date inputs
               $('.error_msg').text('Date is invalid, please recheck your input!');
             }
+            if ($('.error_msg').text() != '') {
+              $('#complex_search').attr('disabled', true);
+            }
           }
       </script>";
 echo "<div id='content'><!-- content -->
@@ -135,7 +141,7 @@ echo "<div id='content'><!-- content -->
               </div>
             </div>
             <div class='row'><!-- search button -->
-              <input type='submit' value='Search Books'>
+              <input id='complex_search' type='submit' value='Search Books' disabled>
             </div>
           </form>
         </div>
@@ -160,10 +166,42 @@ echo "</table>";
 /* check if complex search */
 if (array_key_exists('field1', $_GET)) {//complex search
   $field1 = strval($_GET['field1']);//get field1
-  $text1 = strval($_GET['text1']);//get field1
-  if($field1==""||$text1==""){
-    echo "<p class='error_msg'>The first search area is compulsory, please recheck your input!</p>";
+  $text1 = strval($_GET['text1']);//get text1
+  $field2 = strval($_GET['field2']);//get field2
+  $text3 = strval($_GET['field3']);//get field3
+  $field3 = strval($_GET['text3']);//get text3
+  echo "<p>field1: $field1, text1: $text1, field2: $field2, field3: $field3, text3: $text3.";
+  echo "<p>time:".strtotime("23022011");
+  if ($field1!=""){//first field is valid
+    if ($field3==""){//second field is not Validation
+      //TODO: first field search
+      $searchfield = $field1;
+      $searchtext = $text1;
+    } else {//third field is valid
+      //TODO: two fields search
+
+    }
+  } else {
+    if ($field3==""){//second field is not Validation
+      //TODO: error happened
+      echo "<p class='error_msg'>Error happened in complex search!</p>";
+
+    } else {//third field is valid
+      //TODO: third field search
+      $searchfield = $field3;
+      $searchtext = $text3;
+    }
   }
+  //TODO: simple field search
+  if ($searchfield = "price"){
+    $searchtext = floatval($searchtext);
+  }
+  if ($searchfield = "price"){
+
+  }
+
+
+
 } else {//simple search
   if (array_key_exists('category', $_GET)) {
     $field = strval($_GET['category']);//get category
