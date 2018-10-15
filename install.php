@@ -125,7 +125,7 @@ Purpose:	<installation processing> create tables and entries in database
 Each card features step-by-step instructions for beginners to start coding with Scratch. The front of the card shows an activity kids can do with Scratch-like animating a character or keeping score in a game. The back shows how to put together code blocks to make the projects come to life! Along the way, kids learn key coding concepts, such as sequencing, conditionals, and variables.
 
 This collection of coding activity cards is perfect for sharing among small groups in homes and schools.";
-  $sql_product1 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000001, 'Scratch Coding Cards', 'Scratch Team Mit', '01-08-2017', 0, 26.43, 0.85, '$brief1', '$description1')";
+  $sql_product1 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000001, 'Scratch Coding Cards', 'Scratch Team Mit', '2017-02-10', 0, 26.43, 0.85, '$brief1', '$description1')";
   if ($db->exec($sql_product1)){
     echo "product 1 info writes into database successfully<br>";
   } else {
@@ -134,7 +134,7 @@ This collection of coding activity cards is perfect for sharing among small grou
   /* product 2 */
   $brief2 = "Suitable for children, this title covers colourful collage illustrations and its deceptively simply, hopeful story. It features die-cut pages and finger-sized holes to explore.";
   $description2 = "";
-  $sql_product2 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000002, 'The Very Hungry Caterpillar', 'Eric Carle', '30-10-1994', 0, 15.75, 0.95, '$brief2', '$description2')";
+  $sql_product2 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000002, 'The Very Hungry Caterpillar', 'Eric Carle', '1994-02-12', 0, 15.75, 0.95, '$brief2', '$description2')";
   if ($db->exec($sql_product2)){
     echo "product 2 info writes into database successfully<br>";
   } else {
@@ -143,7 +143,7 @@ This collection of coding activity cards is perfect for sharing among small grou
   /* product 3 */
   $brief3 = "Harry finds some old dinosaurs in his Grandma’s attic. He cleans them up and makes them his own, carefully (and accurately) naming each one. Harry and his dinosaurs go everywhere together. But one day, after an exciting train ride, Harry accidentally leaves the dinosaurs on the train. Silly, charming illustrations accompany this whimsical text of a child being a child.";
   $description3 = "From the Hardcover edition.";
-  $sql_product3 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000003, 'Harry and the Bucketful of Dinosaurs', 'Ian Whybrow', '13-07-2010', 0, 12.77, 0.95, '$brief3', '$description3')";
+  $sql_product3 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000003, 'Harry and the Bucketful of Dinosaurs', 'Ian Whybrow', '2009-02-23', 0, 12.77, 0.95, '$brief3', '$description3')";
   if ($db->exec($sql_product3)){
     echo "product 3 info writes into database successfully<br>";
   } else {
@@ -152,7 +152,7 @@ This collection of coding activity cards is perfect for sharing among small grou
   /* product 4 */
   $brief4 = "Jordan Peterson as a clinical psychologist has reshaped the modern understanding of personality, and now he has become one of the world most popular public thinkers, with his lectures on topics ranging from the Bible to romantic relationships drawing tens of millions of viewers. In an era of polarizing politics, echo chambers and trigger warnings, his startling message about the value of personal responsibility and the dangers of ideology has resonated around the world.";
   $description4 = "In this book, he combines ancient wisdom with decades of experience to provide twelve profound and challenging principles for how to live a meaningful life, from setting your house in order before criticising others to comparing yourself to who you were yesterday, not someone else today. Gripping, thought-provoking and deeply rewarding, 12 Rules for Life offers an antidote to the chaos in our lives- eternal truths applied to our modern problems.";
-  $sql_product4 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000004, '12 Rules for Life', 'Jordan B.Peterson', '16-01-2018', 1, 24.00, 0.90, '$brief4', '$description4')";
+  $sql_product4 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000004, '12 Rules for Life', 'Jordan B.Peterson', '2018-01-16', 1, 24.00, 0.90, '$brief4', '$description4')";
   if ($db->exec($sql_product4)){
     echo "product 4 info writes into database successfully<br>";
   } else {
@@ -161,7 +161,7 @@ This collection of coding activity cards is perfect for sharing among small grou
   /* product 5 */
   $brief5 = "Explores the projects, dreams and nightmares that will shape the twenty-first century - from overcoming death to creating artificial life. This book asks the fundamental questions: Where do we go from here? And how will we protect this fragile world from our own destructive powers?";
   $description5 = "";
-  $sql_product5 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000005, 'Homo Deus: A Brief History of Tomorrow', 'Yuval Noah Harari', '3-4-2017', 1, 18.01, 1, '$brief5', '$description5')";
+  $sql_product5 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000005, 'Homo Deus: A Brief History of Tomorrow', 'Yuval Noah Harari', '2017-05-21', 1, 18.01, 1, '$brief5', '$description5')";
   if ($db->exec($sql_product5)){
     echo "product 5 info writes into database successfully<br>";
   } else {
@@ -174,7 +174,7 @@ This collection of coding activity cards is perfect for sharing among small grou
 They are embedded deeply in the traditions, tales and cultural DNA of the West. You will fall in love with Zeus, marvel at the birth of Athena, wince at Cronus and Gaia revenge on Ouranos, weep with King Midas and hunt with the beautiful and ferocious Artemis.
 
 Spellbinding, informative and moving, Stephen Fry Mythos perfectly captures these stories for the modern age - in all their rich and deeply human relevance. ";
-  $sql_product6 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000006, 'Mythos', 'Stephen Fry', '20-04-2017', 1, 25.90, 0.80, '$brief6', '$description6')";
+  $sql_product6 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000006, 'Mythos', 'Stephen Fry', '2017-01-21', 1, 25.90, 0.80, '$brief6', '$description6')";
   if ($db->exec($sql_product6)){
     echo "product 6 info writes into database successfully<br>";
   } else {
@@ -183,7 +183,7 @@ Spellbinding, informative and moving, Stephen Fry Mythos perfectly captures thes
   /* product 7 */
   $brief7 = "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry eleventh birthday, a great beetle-eyed giant of a man called Rubeus Hagrid bursts in with some astonishing news: Harry Potter is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. An incredible adventure is about to begin!";
   $description7 = "Harry Potter and the Philosopher’s Stone is also available as an Illustrated Kindle-in-Motion edition.";
-  $sql_product7 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000007, 'Harry Potter and the Philosophers Stone', 'J.K. Rowling', '15-9-2015', 2, 22.99, 0.95, '$brief7', '$description7')";
+  $sql_product7 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000007, 'Harry Potter and the Philosophers Stone', 'J.K. Rowling', '2015-09-21', 2, 22.99, 0.95, '$brief7', '$description7')";
   if ($db->exec($sql_product7)){
     echo "product 7 info writes into database successfully<br>";
   } else {
@@ -192,7 +192,7 @@ Spellbinding, informative and moving, Stephen Fry Mythos perfectly captures thes
   /* product 8 */
   $brief8 = "This popular paperback edition of the classic work of fantasy, with a striking new black cover based on JRR Tolkien own design and featuring brand new reproductions of all his drawings and maps.";
   $description8 = "";
-  $sql_product8 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000008, 'The Hobbit: International Edition', 'J.R.R. Tolkien', '13-11-1991', 2, 15.50, 1, '$brief8', '$description8')";
+  $sql_product8 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000008, 'The Hobbit: International Edition', 'J.R.R. Tolkien', '1991-11-13', 2, 15.50, 1, '$brief8', '$description8')";
   if ($db->exec($sql_product8)){
     echo "product 8 info writes into database successfully<br>";
   } else {
@@ -209,7 +209,7 @@ His new mission brings him across old friends and old enemies alike, but as his 
 As shadowy enemies move to position themselves for civil war, Red Falcon’s crew must chase an ever-shrinking set of clues. If they succeed, they might just buy the Protectorate peace for their lifetime.
 
 But if they fail…";
-  $sql_product9 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000009, 'Agents of Mars', 'Glynn Stewart', '14-9-2018', 2, 16.99, 0.95, '$brief9', '$description9')";
+  $sql_product9 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000009, 'Agents of Mars', 'Glynn Stewart', '1998-10-12', 2, 16.99, 0.95, '$brief9', '$description9')";
   if ($db->exec($sql_product9)){
     echo "product 9 info writes into database successfully<br>";
   } else {
@@ -222,7 +222,7 @@ But if they fail…";
 Arriving late at night and in the midst of a violent storm, she discovers that she is not alone. A young man is there before her, an enigmatic figure from the past: her cousin Leo, who had been missing for years, believed dead.
 
 As Carrie reads the secrets of her grandmother’s diaries and the enchantment of the house exerts itself, Carrie finds herself irresistibly drawn to him. But what of her husband? And is Leo really who he appears to be?";
-  $sql_product10 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000010, 'The Italian House: The unmissable read of 2018', 'Teresa Crane', '14-03-2016', 3, 145.10, 0.75, '$brief10', '$description10')";
+  $sql_product10 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000010, 'The Italian House: The unmissable read of 2018', 'Teresa Crane', '2016-04-03', 3, 145.10, 0.75, '$brief10', '$description10')";
   if ($db->exec($sql_product10)){
     echo "product 10 info writes into database successfully<br>";
   } else {
@@ -235,7 +235,7 @@ As Carrie reads the secrets of her grandmother’s diaries and the enchantment o
 Through a series of recordings, Catherine shares their long love story, but will Sean recognise the story she tells? Catherine’s words have been chosen with love, but are painfully honest—and sometimes simply painful. She reveals every unspoken thought and every secret she kept from her husband—revelations that will shake everything Sean thought he knew about their life together.
 
 But as disconcerting as the tapes turn out to be, Sean prays that they will ultimately confirm the one thing he never dared question. Does destiny exist? And were his and Catherine’s love and life together always meant to be?";
-  $sql_product11 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000011, 'Things We Never Said', 'Nick Alexander', '4-9-2018', 3, 22.24, 0.9, '$brief11', '$description11')";
+  $sql_product11 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000011, 'Things We Never Said', 'Nick Alexander', '2018-4-9', 3, 22.24, 0.9, '$brief11', '$description11')";
   if ($db->exec($sql_product11)){
     echo "product 11 info writes into database successfully<br>";
   } else {
@@ -246,7 +246,7 @@ But as disconcerting as the tapes turn out to be, Sean prays that they will ulti
   $description12 = "On the eve of her wedding to Nicholas Young, heir to one of the greatest fortunes in Asia, Rachel should be over the moon. She has a flawless Asscher-cut diamond from JAR, a wedding dress she loves more than anything found in the salons of Paris and a fiance willing to sacrifice his entire inheritance in order to marry her. But Rachel still mourns the fact that her birth father, a man she never knew, will not be able to walk her down the aisle. Until: a shocking revelation draws Rachel into a world of Shanghai splendour beyond anything she has ever imagined.
 
 Here we meet Carlton, a Ferrari-crashing bad boy known for Prince Harry-like antics; Colette, a celebrity girlfriend chased by fevered paparazzi; and the man Rachel has spent her entire life waiting to meet: her father. Meanwhile, Singapore It Girl, Astrid Leong, is shocked to discover that there is a downside to having a newly minted tech billionaire husband. A romp through Asia most exclusive clubs, auction houses and estates, China Rich Girlfriend brings us into the elite circles of Mainland China, introducing a captivating cast of characters and offering an inside glimpse at what it is like to be gloriously, crazily, China-rich.";
-  $sql_product12 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000012, 'China Rich Girlfriend', 'Kevin Kwan', '27-4-2016', 3, 18.95, 1, '$brief12', '$description12')";
+  $sql_product12 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000012, 'China Rich Girlfriend', 'Kevin Kwan', '2016-04-14', 3, 18.95, 1, '$brief12', '$description12')";
   if ($db->exec($sql_product12)){
     echo "product 12 info writes into database successfully<br>";
   } else {
@@ -262,7 +262,7 @@ Five weddings. The perfect venue. One little hitch…";
 After months of hard work, the dream starts to become a reality – until Gavin walks out halfway through their first season. Overnight, Sara is left very much alone with the prospect of losing everything.
 
 With her own heart breaking, Sara has five weddings before the end of the season to turn the business around and rescue her dreams. With the help of the locals and a little French courage, can she save Château Bellevue before the summer is over?";
-  $sql_product13 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000013, 'The French for Always', 'Fiona Valpy', '23-4-2014', 4, 23.99, 0.8, '$brief13', '$description13')";
+  $sql_product13 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000013, 'The French for Always', 'Fiona Valpy', '2014-03-04', 4, 23.99, 0.8, '$brief13', '$description13')";
   if ($db->exec($sql_product13)){
     echo "product 13 info writes into database successfully<br>";
   } else {
@@ -274,7 +274,7 @@ With her own heart breaking, Sara has five weddings before the end of the season
   $description14 = "The Perfect Choice: Lonely Planet Japan, our most comprehensive guide to Japan, is perfect for both exploring top sights and taking roads less travelled.
 
 About Lonely Planet: Lonely Planet is a leading travel media company and the world’s number one travel guidebook brand, providing both inspiring and trustworthy information for every kind of traveler since 1973. Over the past four decades, we’ve printed over 145 million guidebooks and grown a dedicated, passionate global community of travelers. You’ll also find our content online, and in mobile apps, video, 14 languages, nine international magazines, armchair and lifestyle books, ebooks, and more.";
-  $sql_product14 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000014, 'Lonely Planet Japan (Travel Guide)', 'Lonely Planet', '1-8-2017', 4, 21.75, 0.8, '$brief14', '$description14')";
+  $sql_product14 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000014, 'Lonely Planet Japan (Travel Guide)', 'Lonely Planet', '2017-01-08', 4, 21.75, 0.8, '$brief14', '$description14')";
   if ($db->exec($sql_product14)){
     echo "product 14 info writes into database successfully<br>";
   } else {
@@ -287,7 +287,7 @@ About Lonely Planet: Lonely Planet is a leading travel media company and the wor
 
 Set amidst the olive groves, rolling hills, castles and cathedrals of Northern Spain; and featuring a supporting cast of eccentrics - from mad monks to angry nuns, lycra-clad cyclists, international soul seekers and boisterous boy scouts - The Year We Seized the Day is the inspiring, moving and blackly funny account of two hapless pilgrims on an extraordinary journey to the end of the earth.and beyond.
 ";
-  $sql_product15 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000015, 'The Year We Seized the Day: A true story of friendship and renewal on the Camino', 'Elizabeth Best', '1-1-2010', 4, 39.86, 0.95, '$brief15', '$description15')";
+  $sql_product15 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000015, 'The Year We Seized the Day: A true story of friendship and renewal on the Camino', 'Elizabeth Best', '2010-01-01', 4, 39.86, 0.95, '$brief15', '$description15')";
   if ($db->exec($sql_product15)){
     echo "product 15 info writes into database successfully<br>";
   } else {
@@ -301,7 +301,7 @@ Set amidst the olive groves, rolling hills, castles and cathedrals of Northern S
 The story she pieces together is confusing and unsettling, and appears to have been patched over with lies. But who can tell her the truth? With her father sinking into Alzheimer’s and her brother reluctant to help, it seems Cara will never find the answers to her questions. One thing is clear, though: someone knows more than they’re letting on.
 
 Torn between loyalty to her family and dread of what she might find, Cara digs into the early years of her parents’ troubled marriage, hunting down long-lost relatives who might help unravel the mystery. But the picture that begins to emerge is not at all the one she’d expected—because as she soon discovers, lies have a habit of multiplying . . .";
-  $sql_product16 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000016, 'Postcards from a Stranger', 'Imogen Clark', '27-8-2018', 5, 20.81, 0.95, '$brief16', '$description16')";
+  $sql_product16 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000016, 'Postcards from a Stranger', 'Imogen Clark', '2018-08-23', 5, 20.81, 0.95, '$brief16', '$description16')";
   if ($db->exec($sql_product16)){
     echo "product 16 info writes into database successfully<br>";
   } else {
@@ -315,7 +315,7 @@ Torn between loyalty to her family and dread of what she might find, Cara digs i
 Rose realizes she’s wasted twenty-four years of living and makes a list on the back of a Wal-Mart receipt: twenty-eight things she wants to accomplish before her vision comes true. She’s well on her way with the help of her next door neighbor Joe, who has no trouble teaching Rose the rules of drinking, but won’t help with number fifteen-- do more with a man. Joe’s new to town, but it doesn’t take a vision for Rose to realize he’s got plenty secrets of his own.
 
 Somebody thinks Rose has something they want and they’ll do anything to get it. Her house is broken into, someone else she knows is murdered, and suddenly, dying a virgin in the Fenton County jail isn’t her biggest worry after all.";
-  $sql_product17 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000017, 'Twenty-Eight and a Half Wishes', 'Denise Grover Swank', '19-12-2013', 5, 23.25, 0.9, '$brief17', '$description17')";
+  $sql_product17 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000017, 'Twenty-Eight and a Half Wishes', 'Denise Grover Swank', '2013-12-12', 5, 23.25, 0.9, '$brief17', '$description17')";
   if ($db->exec($sql_product17)){
     echo "product 17 info writes into database successfully<br>";
   } else {
@@ -345,7 +345,7 @@ So do I.
 Every day in the newsroom is a battle.
 Every night in his bed, war.
 But it was my heart at stake, and I fear I should be raising the white flag.";
-  $sql_product18 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000018, 'Dirty Headlines', 'LJ Shen', '20-4-2018', 5, 24.45, 1, '$brief18', '$description18')";
+  $sql_product18 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000018, 'Dirty Headlines', 'LJ Shen', '2018-04-20', 5, 24.45, 1, '$brief18', '$description18')";
   if ($db->exec($sql_product18)){
     echo "product 18 info writes into database successfully<br>";
   } else {
@@ -366,7 +366,7 @@ Join the investigative journalist Oliver Bullough on a journey into Moneyland - 
 Learn how the institutions of Europe and the United States have become money-laundering operations, undermining the foundations of Western stability. Discover the true cost of being open for business no matter how corrupt and dangerous the customer. Meet the kleptocrats. Meet their awful children. And find out how heroic activists around the world are fighting back.
 
 This is the story of wealth and power in the 21st century. It is not too late to change it.";
-  $sql_product19 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000019, 'Moneyland: Why Thieves And Crooks Now Rule The World And How To Take It Back', 'Oliver Bullough', '16-9-2018', 6, 38.99, 1, '$brief19', '$description19')";
+  $sql_product19 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000019, 'Moneyland: Why Thieves And Crooks Now Rule The World And How To Take It Back', 'Oliver Bullough', '2018-09-16', 6, 38.99, 1, '$brief19', '$description19')";
   if ($db->exec($sql_product19)){
     echo "product 19 info writes into database successfully<br>";
   } else {
@@ -379,7 +379,7 @@ This is the story of wealth and power in the 21st century. It is not too late to
   $description20 = "New York Times bestselling author Steven Kotler and high-performance expert Jamie Wheal spent four years investigating the leading edges of this revolution-from the home of SEAL Team Six to the Googleplex, the Burning Man festival, Richard Branson Necker Island, Red Bull is training center, Nike innovation team, and the United Nations headquarters. And what they learned was stunning: In their own ways, with differing languages, techniques, and applications, every one of these groups has been quietly seeking the same thing: the boost in information and inspiration that altered states provide.
 
 Today, this revolution is spreading to the mainstream, fueling a trillion-dollar underground economy and forcing us to rethink how we can all lead richer, more productive, more satisfying lives. Driven by four accelerating forces-psychology, neurobiology, technology, and pharmacology-we are gaining access to and insights about some of the most contested and misunderstood terrain in history. Stealing Fire is a provocative examination of what is actually possible; a guidebook for anyone who wants to radically upgrade their life.";
-  $sql_product20 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000020, 'Stealing Fire: How Silicon Valley, the Navy SEALs, and Maverick Scientists Are Revolutionizing the Way We Live and Work', 'Steven Kotler', '18-12-2017', 6, 18.16, 1, '$brief20', '$description20')";
+  $sql_product20 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000020, 'Stealing Fire: How Silicon Valley, the Navy SEALs, and Maverick Scientists Are Revolutionizing the Way We Live and Work', 'Steven Kotler', '2017-12-16', 6, 18.16, 1, '$brief20', '$description20')";
   if ($db->exec($sql_product20)){
     echo "product 20 info writes into database successfully<br>";
   } else {
@@ -392,7 +392,7 @@ Today, this revolution is spreading to the mainstream, fueling a trillion-dollar
   $description21 = "In Ego is the Enemy, Ryan Holiday shows us how and why ego is such a powerful internal opponent to be guarded against at all stages of our careers and lives, and that we can only create our best work when we identify, acknowledge and disarm its dangers. Drawing on an array of inspiring characters and narratives from literature, philosophy and history, the book explores the nature and dangers of ego to illustrate how you can be humble in your aspirations, gracious in your success and resilient in your failures.
 
 The result is an inspiring and timely reminder that humility and confidence are our greatest friends when confronting the challenges of a culture that tends to fan the flames of ego, a book full of themes and life lessons that will resonate, uplift and inspire.";
-  $sql_product21 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000021, 'Ego is the Enemy: The Fight to Master Our Greatest Opponent', 'Ryan Holiday', '23-8-2017', 6, 16.80, 1, '$brief21', '$description21')";
+  $sql_product21 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000021, 'Ego is the Enemy: The Fight to Master Our Greatest Opponent', 'Ryan Holiday', '2017-08-06', 6, 16.80, 1, '$brief21', '$description21')";
   if ($db->exec($sql_product21)){
     echo "product 21 info writes into database successfully<br>";
   } else {
@@ -409,7 +409,7 @@ After Tom senses a double-cross, he suppresses the urge to run. After all, he’
 As Tom and Patty fight to keep one step ahead of the jilted gangster, they narrow down their lists of suspects. By hook or by crook, they’ll make sure whoever ratted them out never crosses them again…
 
 The Traveling Man is the first book in a series of suspenseful crime thrillers. If you like edge-of-your-seat action, shady criminal worlds, and nail-biting plot twists, then you’ll love Michael King’s dizzying whodunnit. ";
-  $sql_product22 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000022, 'The Traveling Man', 'Michael P. King', '14-12-2015', 7, 24.41, 1, '$brief22', '$description22')";
+  $sql_product22 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000022, 'The Traveling Man', 'Michael P. King', '2015-09-06', 7, 24.41, 1, '$brief22', '$description22')";
   if ($db->exec($sql_product22)){
     echo "product 22 info writes into database successfully<br>";
   } else {
@@ -423,7 +423,7 @@ The Traveling Man is the first book in a series of suspenseful crime thrillers. 
 
 If you loved The Girl on the Train, Gone Girl or The Couple Next Door then this dark, twisting psychological thriller from Amazon chart bestseller Jess Ryder is guaranteed to have you gripped.
 ";
-  $sql_product23 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000023, 'The Ex-Wife: A nail biting gripping psychological thriller', 'Jess Ryder', '27-4-2016', 7, 18.95, 1, '$brief23', '$description23')";
+  $sql_product23 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000023, 'The Ex-Wife: A nail biting gripping psychological thriller', 'Jess Ryder', '2016-08-06', 7, 18.95, 1, '$brief23', '$description23')";
   if ($db->exec($sql_product23)){
     echo "product 23 info writes into database successfully<br>";
   } else {
@@ -434,7 +434,7 @@ If you loved The Girl on the Train, Gone Girl or The Couple Next Door then this 
   /* product 24 */
   $brief24 = "In this edge-of-your-seat thriller, author Dave Edlund brings readers face to face with the promise of energy independence... and its true cost.";
   $description24 = "As one by one the world’s leading alternative energy researchers are assassinated, Peter Savage and his friend Jim Nicolaou race against the clock to preserve the secret that promises to change the landscape of the world... or start a global war. In the timely, heart-thumping thriller Crossing Savage, author Dave Edlund presents the theory of abiogenic oil production and the terrifying array of unintended consequences that accompany the belief that energy independence can be realized.";
-  $sql_product24 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000024, 'Crossing Savage: A Peter Savage Novel', 'Dave Edlund', '26-3-2014', 7, 18.09, 1, '$brief24', '$description24')";
+  $sql_product24 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000024, 'Crossing Savage: A Peter Savage Novel', 'Dave Edlund', '2014-05-06', 7, 18.09, 1, '$brief24', '$description24')";
   if ($db->exec($sql_product24)){
     echo "product 24 info writes into database successfully<br>";
   } else {
@@ -452,7 +452,7 @@ The Soong Family became the principal rulers of China during the first half of t
 In The Soong Dynasty, Sterling Seagrave describes for the first time the intricate and fascinating rise to power of Charlie Soong and his children, whom he married to some of China’s most powerful men to create a network of power and influence which was to last for over fifty years.
 
 It is a classic tale of power, money, corruption and greed with elements of tragedy and comedy.";
-  $sql_product25 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000025, 'The Soong Dynasty', 'Sterling Seagrave', '18-12-2016', 8, 45.33, 0.95, '$brief25', '$description25')";
+  $sql_product25 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000025, 'The Soong Dynasty', 'Sterling Seagrave', '2015-05-06', 8, 45.33, 0.95, '$brief25', '$description25')";
   if ($db->exec($sql_product25)){
     echo "product 25 info writes into database successfully<br>";
   } else {
@@ -468,7 +468,7 @@ Behind this romantic tale is the saga of the Moghul emperors who swept into Nort
 For a time, it seemed like the Taj - like the Moghuls - would vanish. Only in the twentieth century was the Taj restored to something of its former glory.
 
 Here is the dramatic and often tragic story of the Taj and the men and women of the dynasty that created it.";
-  $sql_product26 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000026, 'The Taj Mahal: A History', 'John David Cooper', '20-3-2017', 8, 38.95, 0.9, '$brief26', '$description26')";
+  $sql_product26 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000026, 'The Taj Mahal: A History', 'John David Cooper', '2014-07-04', 8, 38.95, 0.9, '$brief26', '$description26')";
   if ($db->exec($sql_product26)){
     echo "product 26 info writes into database successfully<br>";
   } else {
@@ -479,7 +479,7 @@ Here is the dramatic and often tragic story of the Taj and the men and women of 
   /* product 27 */
   $brief27 = "The association of the name James Cook with ideas of seafaring adventure and discovery is truly an indelible one. Even if you do not know the details of this extraordinary man’s life, you can probably avow that he left a unique stamp on history. ";
   $description27 = "In this book, we will explore the life of James Cook from his birth in 1728 in a humble Yorkshire village all the way to his death on the newly discovered Sandwich Islands—today known as Hawaii—in 1779. You will gain insight into the character of this famous yet markedly private man, and explore the factors that might have contributed to this tragic downfall. ";
-  $sql_product27 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000027, 'James Cook: A Life From Beginning to End', 'Hourly History', '9-7-2015', 8, 39.87, 0.85, '$brief27', '$description27')";
+  $sql_product27 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000027, 'James Cook: A Life From Beginning to End', 'Hourly History', '2015-07-09', 8, 39.87, 0.85, '$brief27', '$description27')";
   if ($db->exec($sql_product27)){
     echo "product 27 info writes into database successfully<br>";
   } else {
@@ -492,7 +492,7 @@ Here is the dramatic and often tragic story of the Taj and the men and women of 
   $description28 = "Featuring 130 recipes in Jamie easy-to-follow style, the book has chapters on Antipasti, Salad, Soup, Meat, Pasta, Fish, Rice & Dumplings, Bread & Pastry, Sides, Desserts and all the Basics you need.
 
 The recipes are a mix of fast and slow cooking, familiar classics with a Jamie twist, simple everyday dishes and more indulgent labour-of-love choices for weekends and celebrations. Whether cooking for yourself or cooking for friends and family, the aromas and tastes will transport you straight to the landscapes of Italy. Viva Italia!";
-  $sql_product28 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000028, 'Jamie Cooks Italy', 'Jamie Oliver', '9-8-2018', 9, 24.00, 0.9, '$brief28', '$description28')";
+  $sql_product28 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000028, 'Jamie Cooks Italy', 'Jamie Oliver', '2018-06-09', 9, 24.00, 0.9, '$brief28', '$description28')";
   if ($db->exec($sql_product28)){
     echo "product 28 info writes into database successfully<br>";
   } else {
@@ -502,7 +502,7 @@ The recipes are a mix of fast and slow cooking, familiar classics with a Jamie t
   /* product 29 */
   $brief29 = "Mouthwatering meals from healthy and portable bowl that help to quickly fuel your day, from morning to dinner.";
   $description29 = "";
-  $sql_product29 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000029, 'Nourishing Superfood Bowls: 75 Healthy and Delicious Gluten-Free Meals to Fuel Your Day', 'Lindsay Cotter', '10-4-2018', 9, 24.75, 0.95, '$brief29', '$description29')";
+  $sql_product29 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000029, 'Nourishing Superfood Bowls: 75 Healthy and Delicious Gluten-Free Meals to Fuel Your Day', 'Lindsay Cotter', '2018-04-10', 9, 24.75, 0.95, '$brief29', '$description29')";
   if ($db->exec($sql_product29)){
     echo "product 29 info writes into database successfully<br>";
   } else {
@@ -518,7 +518,7 @@ Sometimes we lack discipline or motivation. However, there’s another reason wh
 What is self-efficacy? What are the main four sources of it? How can you develop more confidence in your abilities?
 
 These are some of the questions I’ll answer in this short book. The advice you’re about to read is based both on scientific research and my personal experience. I will share fundamental knowledge that will help you build more confidence in your abilities and reach your goals.";
-  $sql_product30 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000030, 'Confidence: How to Overcome Your Limiting Beliefs and Achieve Your Goals', 'Martin Meadows', '7-4-2015', 9, 22.55, 0.85, '$brief30', '$description30')";
+  $sql_product30 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000030, 'Confidence: How to Overcome Your Limiting Beliefs and Achieve Your Goals', 'Martin Meadows', '2015-07-10', 9, 22.55, 0.85, '$brief30', '$description30')";
   if ($db->exec($sql_product30)){
     echo "product 30 info writes into database successfully<br>";
   } else {
@@ -556,7 +556,7 @@ Fortune Cookie,
 Chinese Almond Cookie.
 
 Scroll up now to grab your copy of American Chinese cuisine TODAY!";
-  $sql_product31 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000031, 'American Chinese Cuisine: Classic Americanized Adaptations of Chinese Recipes', 'JR Stevens', '3-9-2017', 10, 24.84, 0.95, '$brief31', '$description31')";
+  $sql_product31 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000031, 'American Chinese Cuisine: Classic Americanized Adaptations of Chinese Recipes', 'JR Stevens', '2017-07-01', 10, 24.84, 0.95, '$brief31', '$description31')";
   if ($db->exec($sql_product31)){
     echo "product 31 info writes into database successfully<br>";
   } else {
@@ -572,7 +572,7 @@ So does this mean that we can no longer enjoy our deep-fried favorites? Fortunat
 The air fryer was designed specifically for this purpose—so that people can enjoy fried foods without the health drawbacks.
 
 An air fryer utilizes what is called “rapid air technology” to cook food that usually requires being submerged in deep fat or oil. What the device does is circulate the air to reach up to 390 degrees F in order to fry foods like fries, chicken, chips, fish and many more.";
-  $sql_product32 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000032, 'The Effective Air Fryer Cookbook: The Ultimate Guide Inclusive of 150 Healthy Recipes', 'Chef Effect', '20-9-2014', 10, 27.88, 0.9, '$brief32', '$description32')";
+  $sql_product32 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000032, 'The Effective Air Fryer Cookbook: The Ultimate Guide Inclusive of 150 Healthy Recipes', 'Chef Effect', '2014-09-01', 10, 27.88, 0.9, '$brief32', '$description32')";
   if ($db->exec($sql_product32)){
     echo "product 32 info writes into database successfully<br>";
   } else {
@@ -583,7 +583,7 @@ An air fryer utilizes what is called “rapid air technology” to cook food tha
   /* product 33 */
   $brief33 = "Growing up in an all-women household and coddled endlessly by his Italian mother and grandmother, Eric Lindstrom was nourished to obesity on meaty sauces, fried eggs, and butter-laden cookies. After spending the first half of his life as an adamant omnivore, Lindstrom went 100% vegan. Reluctantly. Overnight. From burgers to beets, from pork to parsnips.";
   $description33 = "It’s time for a down-to-earth book that proves anyone can go vegan (even someone who once ate sixty-eight chicken wings in a sitting). How can a man adopt a vegan approach? Won’t he die of protein deficiency? What if he is married to a vegan woman? How would he order a salad at a Minnesota steakhouse? What should he bring to a gluten-free, nut-free, macrobiotic, nightshade-free, oil-free, vegan potluck (true story)?";
-  $sql_product33 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000033, 'The Skeptical Vegan: My Journey from Notorious Meat Eater to Tofu-Munching Vegan—A Survival Guide', 'Eric C. Lindstrom', '25-7-2017', 10, 32.99, 0.8, '$brief33', '$description33')";
+  $sql_product33 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000033, 'The Skeptical Vegan: My Journey from Notorious Meat Eater to Tofu-Munching Vegan—A Survival Guide', 'Eric C. Lindstrom', '2017-07-14', 10, 32.99, 0.8, '$brief33', '$description33')";
   if ($db->exec($sql_product33)){
     echo "product 33 info writes into database successfully<br>";
   } else {
@@ -594,7 +594,7 @@ An air fryer utilizes what is called “rapid air technology” to cook food tha
   /* product 34 */
   $brief34 = "#1 Kindle Bestseller in BOTH Men Adventure and War genres!";
   $description34 = "Carolyn McCray 30 PIECES OF SILVER proves that Dan Brown crown is up for grabs. Part minefield and all roller-coaster ride, here is a story as controversial as it is thriller. Hunker down for a long night because once you start this book you wo not be putting it down.";
-  $sql_product34 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000034, '30 Pieces of Silver: An Extremely Controversial Historical Thriller', 'Carolyn McCray', '8-5-2013', 11, 98.14, 0.70, '$brief34', '$description34')";
+  $sql_product34 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000034, '30 Pieces of Silver: An Extremely Controversial Historical Thriller', 'Carolyn McCray', '2013-05-01', 11, 98.14, 0.70, '$brief34', '$description34')";
   if ($db->exec($sql_product34)){
     echo "product 34 info writes into database successfully<br>";
   } else {
@@ -616,7 +616,7 @@ Nothing about tiny Elsbury, Louisiana entices her until she locks eyes with the 
 Libby is used to getting what she wants and Blaine is no exception, but as the two grow closer, bigger problems arise.
 
 Libby does not know how much more pain her already paper-thin heart can take and when new opportunities in Chicago pop up she is presented with a difficult situation: wait for her redneck Romeo, or move on.";
-  $sql_product35 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000035, 'My Paper Heart: My Paper Heart', 'Magan Vernon', '26-7-2012', 11, 6.98, 0.95, '$brief35', '$description35')";
+  $sql_product35 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000035, 'My Paper Heart: My Paper Heart', 'Magan Vernon', '2012-06-14', 11, 6.98, 0.95, '$brief35', '$description35')";
   if ($db->exec($sql_product35)){
     echo "product 35 info writes into database successfully<br>";
   } else {
@@ -627,7 +627,7 @@ Libby does not know how much more pain her already paper-thin heart can take and
   /* product 36 */
   $brief36 = "Lara Jean keeps her love letters in a hatbox her mother gave her. One for every boy she has ever loved. The letters are for her eyes only. Until the day they are mailed, and suddenly Lara Jean love life goes from imaginary to out of control.";
   $description36 = "";
-  $sql_product36 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000036, 'To All the Boys I have Loved Before', 'Jenny Han', '7-8-2014', 11, 18.28, 0.75, '$brief36', '$description36')";
+  $sql_product36 = "INSERT INTO product (id, title, author, date, category, price, discount, brief, description) VALUES (10000036, 'To All the Boys I have Loved Before', 'Jenny Han', '2014-08-14', 11, 18.28, 0.75, '$brief36', '$description36')";
   if ($db->exec($sql_product36)){
     echo "product 36 info writes into database successfully<br>";
   } else {

@@ -36,7 +36,7 @@ echo "<!-- Validation of Inputs of Complex Search -->
                 $('#field3 option.price').removeAttr('disabled', '');
                 $('#field1 option.date').removeAttr('disabled', '');
                 $('#field3 option.date').removeAttr('disabled', '');
-                if (($('#field1').val() == 'keyword') || ($('#field3').val() == 'keyword') ){//check key inputs
+                if (($('#field1').val() == 'brief') || ($('#field3').val() == 'brief') ){//check key inputs
                   $('#field1 option.key').attr('selected', '');
                   $('#field3 option.key').attr('selected', '');
                 }
@@ -112,8 +112,8 @@ echo "<div id='content'><!-- content -->
                   <option value=''>Search Entity Area</option>
                   <option value='title'>Book Title</option>
                   <option value='author'>Author</option>
-                  <option class='date' value='date'>Publish Date(After DDMMYYYY)</option>
-                  <option class='key' value='keyword'>Keyword</option>
+                  <option class='date' value='date'>Publish Date(After YYYY-MM-DD)</option>
+                  <option class='key' value='brief'>Keyword</option>
                   <option class='price' value='price'>Price(less than $)</option>
                 </select>
               </div>
@@ -131,8 +131,8 @@ echo "<div id='content'><!-- content -->
                   <option value=''>Search Entity Area</option>
                   <option value='title'>Book Title</option>
                   <option value='author'>Author</option>
-                  <option class='date' value='date'>Publish Date(After DDMMYYYY)</option>
-                  <option class='key' value='keyword'>Keyword</option>
+                  <option class='date' value='date'>Publish Date(After YYYY-MM-DD)</option>
+                  <option class='key' value='brief'>Keyword</option>
                   <option class='price' value='price'>Price(less than $)</option>
                 </select>
               </div>
@@ -168,10 +168,10 @@ if (array_key_exists('field1', $_GET)) {//complex search
   $field1 = strval($_GET['field1']);//get field1
   $text1 = strval($_GET['text1']);//get text1
   $field2 = strval($_GET['field2']);//get field2
-  $text3 = strval($_GET['field3']);//get field3
-  $field3 = strval($_GET['text3']);//get text3
-  echo "<p>field1: $field1, text1: $text1, field2: $field2, field3: $field3, text3: $text3.";
-  echo "<p>time:".strtotime("23022011");
+  $field3 = strval($_GET['field3']);//get field3
+  $text3 = strval($_GET['text3']);//get text3
+  //echo "<p>field1: $field1, text1: $text1, field2: $field2, field3: $field3, text3: $text3.";//only for test
+  $searchcondition = "";
   if ($field1!=""){//first field is valid
     if ($field3==""){//second field is not Validation
       //TODO: first field search
@@ -179,7 +179,7 @@ if (array_key_exists('field1', $_GET)) {//complex search
       $searchtext = $text1;
     } else {//third field is valid
       //TODO: two fields search
-
+      $searchcondition = $field2;
     }
   } else {
     if ($field3==""){//second field is not Validation
@@ -192,15 +192,38 @@ if (array_key_exists('field1', $_GET)) {//complex search
       $searchtext = $text3;
     }
   }
-  //TODO: simple field search
-  if ($searchfield = "price"){
-    $searchtext = floatval($searchtext);
+
+  if ($searchcondition == ""){//TODO: simple field search
+    if ($searchfield == "price"){
+      $searchtext = floatval($searchtext);
+      $sql = "SELECT * FROM product WHERE $searchfield <= $searchtext ";
+    } else if ($searchfield == "date"){
+      $date = new DateTime($searchtext);
+      $searchtext = $date->format('Y-m-d');
+      $sql = "SELECT * FROM product WHERE CAST(strftime('%s', product.date)  AS  integer) >= CAST(strftime('%s', '$searchtext')  AS  integer) ";
+    } else {
+      $sql = "SELECT * FROM product WHERE $searchfield LIKE '%$searchtext%' ";
+    }
+  } else {//TODO: two fields search
+    $sql = "SELECT * FROM product WHERE $field1 LIKE '%$text1%' $searchcondition $field3 LIKE '%$text3%' ;";
   }
-  if ($searchfield = "price"){
 
+
+
+  //execute sql and dispaly all results
+  $result = $db->query($sql);
+  //echo $sql;//only for test
+  echo "<h3>Search Results:</h3>";
+  echo "<div class='bookrow'>";
+  while($book = $result->fetchArray()){
+    echo "<div class='book'>";
+    echo "<a href='#' onclick='books(".$book['id'].")'>";
+    echo "<img src='assets/media/img/books/".$book['id'].".jpg' alt='Image'>";
+    echo "<p>".$book['title']."</p>";
+    echo "</a>";
+    echo "</div>";
   }
-
-
+  echo "</div><!-- end of book rows -->";
 
 } else {//simple search
   if (array_key_exists('category', $_GET)) {

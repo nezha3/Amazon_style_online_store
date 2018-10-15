@@ -289,7 +289,7 @@ $header = <<<HTML
 		        onlyLetters : /^[A-Za-z]+$/,
 		        onlyNumbers : /^[0-9]+$/,
 		        onlyMixOfAlphaNumeric : /^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$/,
-						dateddmmyy : /^[0-3]?[0-9][01]?[0-9][12][90][0-9][0-9]$/
+						dateddmmyy : /^[0-3]?[0-9]\-[01]?[0-9]\-[12][90][0-9][0-9]$/
 		    }
 		    var expMatch = {};
 		    expMatch.containsNumber = rgularExp.containsNumber.test(str);
