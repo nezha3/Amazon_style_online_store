@@ -28,14 +28,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//pay order and store order
   if (isset($_GET["order"])){
     $info = json_decode("[".$_GET["order"]."]");//json missing infomation
     //create new order in Database
+    if (getNextID("orders")!=""){
+      $orderid = getNextID("orders") + 1;
+    } else {
+      $orderid = 10000001;
+    }
     $userid = getUserID();
     $date = date("Y-m-d");
-    $sql = "INSERT INTO orders (id, userid, date, totalprice, ifpaid, deliveryid) VALUES ();";
-    if ($db->exec($sql){}
-    for ($i=0; $i < count($info);$i++){
-      $productid = $info[$i]->id;
-      $amount = $info[$i]->quantity;
-      $value = "(id, orderid, productid, price, discount, amount)";
+    $sql = "INSERT INTO orders (id, userid, date, totalprice, ifpaid, deliveryid)
+    VALUES ($orderid, $userid, $date, NULL, 1, NULL);";
+    if ($db->exec($sql)){
+      $j = 0; // caculate insert times
+      for ($i=0; $i < count($info);$i++){
+        if (getNextID("orderproducts")!=""){
+          $id = getNextID("orderproducts") + 1;
+        } else {
+          $id = 10000001;
+        }
+        $productid = $info[$i]->id;
+        $amount = $info[$i]->quantity;
+        $result = $db->query("SELECT product.price FROM product WHERE product.id = $productid ;");//sql
+        while($product = $result->fetchArray()){
+          $price = $product[0];
+        }
+        $sql = "INSERT INTO orderproducts(id, orderid, productid, price, discount, amount)
+        VALUES ($id, $orderid, $productid, $price, 1.0, $amount) ;";
+        if ($db->exec($sql)){
+          $j = $j + 1;
+        } else {
+          echo "FAIL: insert product $productid into orderproducts table";
+        }
+      }
+      if ($j == $i) {//successfully generate order
+        echo "[Successfully Generate Order In Database]: ";
+        echo " Order ID: $orderid --";
+        echo " Date: $date --";
+        echo " Paid: YES";
+      }
+    } else {
+      echo "Database Error. Please Try It Later.";
     }
   } else {
     echo $header;//display header
@@ -44,19 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//pay order and store order
     /* display current order */
     echo "<link rel='stylesheet' type='text/css' href='assets/css/table.css' />";
     echo "<script language = 'javascript' type = 'text/javascript'>";
-    echo "// Ajax: generate order
-    function order(info){
-      var ajaxRequest = new XMLHttpRequest();
-      ajaxRequest.onreadystatechange = function(){
-        if (this.readyState == 4 && this.status == 200){
-
-        }
-      }
-      ajaxRequest.open('GET', 'order.php?id=', true);
-      ajaxRequest.send();
-    }
-
-    // Pay Current Order (protected method)
+    echo "// Pay Current Order (protected method)
     // Store Order Into Database
     function payOrder(info){
       var ajaxRequest = new XMLHttpRequest();
@@ -64,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//pay order and store order
         if (this.readyState == 4 && this.status == 200){
           $('#order_info').empty();
           $('#order_info').text(this.responseText);
-          $('#paythisorder').attr('disabled','');
+          $('#paythisorder').css('display','none');
         }
       }
       ajaxRequest.open('GET', 'order.php?order='+info, true);

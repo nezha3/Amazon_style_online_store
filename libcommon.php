@@ -88,9 +88,21 @@ function getUserID(){
     while($user = $result->fetchArray()){
       $userid = $user[0];
     }
+    $db->close();//close db
+  }
+  return $userid;
+}
+
+// Get Next ID in table of datebase
+function getNextID($str){
+  $id = "";//empty string for initial return value
+  $db = loadDB(); //load database
+  $result = $db->query("SELECT MAX(id) FROM $str ;");//sql
+  while($table = $result->fetchArray()){
+    $id = $table[0];
   }
   $db->close();//close db
-  return $userid;
+  return $id;
 }
 
 // Get page location
