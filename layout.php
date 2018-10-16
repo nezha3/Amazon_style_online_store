@@ -30,6 +30,7 @@ $header = <<<HTML
 			ajaxRequest.open("GET", "books.php?category="+num, true);
 			ajaxRequest.send();
 		}
+
 		// Ajax: display books by product.id
 		function books(id){
 			var ajaxRequest = new XMLHttpRequest();
@@ -256,7 +257,9 @@ $header = <<<HTML
 			}  else if (getCookie("page") == "home") {//layout home page
 				home();
 			}  else if (getCookie("page") == "search") {//layout search page
-
+				//window.location = 'search.php';
+			}  else if (getCookie("page") == "cart") {//layout search page
+				//window.location = 'cart.php';
 			} else {
 				//home();
 			}

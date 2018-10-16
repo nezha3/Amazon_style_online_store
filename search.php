@@ -147,22 +147,6 @@ echo "<div id='content'><!-- content -->
         </div>
         <div class='card'><!-- search result--><p class='error_msg'></p>";
 
-// only for test TODO: check all elements submitted by form
-/*
-echo "<table>";
-foreach ($_GET as $key => $value) {
-      echo "<tr>";
-      echo "<td>";
-      echo $key;
-      echo "</td>";
-      echo "<td>";
-      echo $value;
-      echo "</td>";
-      echo "</tr>";
-  }
-echo "</table>";
-*/
-
 /* check if complex search */
 if (array_key_exists('field1', $_GET)) {//complex search
   $field1 = strval($_GET['field1']);//get field1

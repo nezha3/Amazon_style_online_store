@@ -92,6 +92,26 @@ form.center input, form.center select{
 /* "add to order" form in cart page */
 #addtoorder{
   width: 160px;
-  margin-left: auto;
+  margin-left: 200px;
+  margin-right: 50px;
+}
+#savecart,#paythisorder{
+  width: 160px;
+  margin-left: 50px;
   margin-right: auto;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font: 400 11px system-ui !important;
+}
+#savecart,#paythisorder:hover {
+  background-color: #45a049;
+}
+#paythisorder{
+  margin-top: 20px;
+  float: right;
+  margin-right: 100px !important;
 }

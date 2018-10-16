@@ -18,7 +18,7 @@ function loadDB(){
 
 // Go homepage
 function goHome(){
-  header("Refresh:1; url=index.php");
+  header("Refresh:0; url=index.php");
   //header('Location: index.php');
 }
 
@@ -76,6 +76,21 @@ function loginCheck(){
     return 1;//true
   }
   return 0;//false
+}
+
+// Get User
+function getUserID(){
+  $userid = "";//empty string for initial return value
+  if (isset($_COOKIE["registeruser"])) {
+    $db = loadDB(); //load database
+    $email = $_COOKIE["registeruser"];
+    $result = $db->query("SELECT user.id FROM user WHERE user.email == '$email'");//sql
+    while($user = $result->fetchArray()){
+      $userid = $user[0];
+    }
+  }
+  $db->close();//close db
+  return $userid;
 }
 
 // Get page location
