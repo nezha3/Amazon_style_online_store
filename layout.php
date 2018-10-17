@@ -16,6 +16,7 @@ $header = <<<HTML
 	<!-- css -->
 	<link rel='stylesheet' type='text/css' href='assets/css/gui.css' />
 	<link rel='stylesheet' type='text/css' href='assets/css/form.css' />
+	<link rel='stylesheet' type='text/css' href='assets/css/table.css' />
 	<script src="assets/js/jquery-3.3.1.min.js"></script>
 	<script language = "javascript" type = "text/javascript"><!-- Ajax functions -->
 		// Ajax: display books in one category

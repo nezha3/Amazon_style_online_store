@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//pay order and store order
     $userid = getUserID();
     $date = date("Y-m-d");
     $sql = "INSERT INTO orders (id, userid, date, totalprice, ifpaid, deliveryid)
-    VALUES ($orderid, $userid, $date, NULL, 1, NULL);";
+    VALUES ($orderid, $userid, '$date', NULL, 1, NULL);";
     if ($db->exec($sql)){
       $j = 0; // caculate insert times
       for ($i=0; $i < count($info);$i++){
@@ -73,7 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//pay order and store order
 
     /* redesign content of page */
     /* display current order */
-    echo "<link rel='stylesheet' type='text/css' href='assets/css/table.css' />";
     echo "<script language = 'javascript' type = 'text/javascript'>";
     echo "// Pay Current Order (protected method)
     // Store Order Into Database

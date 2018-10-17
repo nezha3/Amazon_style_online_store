@@ -46,7 +46,6 @@ pageCookie("cart");//set cart page cookie
 /* redesign content of page */
 /* display products in cart and prepare for ordering */
 echo $header;
-echo "<link rel='stylesheet' type='text/css' href='assets/css/table.css' />";
 echo "<div id='content'><!-- Cart Content-->
 <div id='products_in_cart'><!-- Display Products in Cart -->
 <h2>&nbsp;&nbsp;&nbsp;Products in Cart:</h2>";

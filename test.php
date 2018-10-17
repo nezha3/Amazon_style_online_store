@@ -3,7 +3,7 @@
 require("libcommon.php");//add common interfaces
 $db = loadDB(); //load database
 
-echo getNextID("orders");
+echo date("Y-m-d");
 
 $db->close();//close connection of database
 

@@ -159,4 +159,17 @@ function updateUser($id, $email, $key, $name){
   $db->close();//close db
   return $isOK;
 }
+
+// Delete Order
+function deleteOrder($id){
+  $isOk = FALSE;//0 for initial return value
+  $db = loadDB(); //load database
+  if ($db->exec("DELETE FROM orders WHERE id=$id ;") ){//delete order in table orders
+    if ($db->exec("DELETE FROM orderproducts WHERE orderid=$id ;") ){//delete products in that order
+      $isOK = TRUE;//succeed
+    }
+  }
+  $db->close();//close db
+  return $isOK;
+}
 ?>
