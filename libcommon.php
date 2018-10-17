@@ -55,7 +55,7 @@ function getEmail(){
 // Establish name cookie when not existed
 function nameCookie($e){
   if (isset($_COOKIE)){
-    setcookie("name", $e, time() + (900), "/");//set name cookie timeout of 15 mins
+    setcookie("name", $e, time() + (9000), "/");//set name cookie timeout of 150 mins
   } else {
     echo "This website uses COOKIE, please enable COOKIE in your explorer.";
   }
@@ -64,7 +64,7 @@ function nameCookie($e){
 // Establish user cookie when not existed
 function userCookie($e){
   if (isset($_COOKIE)){
-    setcookie("registeruser", $e, time() + (900), "/");//set user cookie timeout of 15 mins
+    setcookie("registeruser", $e, time() + (9000), "/");//set user cookie timeout of 150 mins
   } else {
     echo "This website uses COOKIE, please enable COOKIE in your explorer.";
   }
@@ -136,5 +136,27 @@ function getCart(){
     return json_decode($_COOKIE["cart"], true);
   }
   return "";//if fail, return empty string
+}
+
+// Insert User
+function insertUser($id, $email, $key, $name){
+  $isOk = FALSE;//0 for initial return value
+  $db = loadDB(); //load database
+  if ($db->exec("INSERT INTO user (id, email, key, name) VALUES ($id, '$email', '$key', '$name');") ){//insert user
+    $isOK = TRUE;//succeed
+  }
+  $db->close();//close db
+  return $isOK;
+}
+
+// Update User
+function updateUser($id, $email, $key, $name){
+  $isOk = FALSE;//0 for initial return value
+  $db = loadDB(); //load database
+  if ($db->exec("UPDATE user SET email='$email', key='$key', name='$name' WHERE id=$id ;") ){//update user
+    $isOK = TRUE;//succeed
+  }
+  $db->close();//close db
+  return $isOK;
 }
 ?>

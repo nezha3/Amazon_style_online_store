@@ -244,6 +244,7 @@ $header = <<<HTML
 			if(getCookie("registeruser")!=""){//registered user
 				$("#welcome_msg").empty();
 				$("#welcome_msg").text("Welcome, "+getCookie("name"));//set welcome message
+				$("#account").attr("onclick","account()");//assign account() to Your Account navigation item
 			} else {//normal user
 				$("#welcome_msg").empty();
 				$("#welcome_msg").text("Welcome, BookLover");//give general welcome message
@@ -292,7 +293,8 @@ $header = <<<HTML
 		        onlyLetters : /^[A-Za-z]+$/,
 		        onlyNumbers : /^[0-9]+$/,
 		        onlyMixOfAlphaNumeric : /^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$/,
-						dateddmmyy : /^[0-3]?[0-9]\-[01]?[0-9]\-[12][90][0-9][0-9]$/
+						dateddmmyy : /^[0-3]?[0-9]\-[01]?[0-9]\-[12][90][0-9][0-9]$/,
+						email: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 		    }
 		    var expMatch = {};
 		    expMatch.containsNumber = rgularExp.containsNumber.test(str);
@@ -302,6 +304,7 @@ $header = <<<HTML
 		    expMatch.onlyLetters = rgularExp.onlyLetters.test(str);
 		    expMatch.onlyMixOfAlphaNumeric = rgularExp.onlyMixOfAlphaNumeric.test(str);
 				expMatch.dateddmmyy = rgularExp.dateddmmyy.test(str);
+				expMatch.email = rgularExp.email.test(str);
 		    return expMatch;
 		}
 	</script>

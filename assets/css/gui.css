@@ -17,6 +17,13 @@ body {
 	font-family: 'Helvetica Neue', Helvetica
 }
 
+p.title{
+	margin-left: 4em;
+	font-weight: 600;
+	font-size: 18px;
+	font-style: italic;
+}
+
 /* Header */
 #header {
   background: #232f3e;

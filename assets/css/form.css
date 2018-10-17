@@ -115,3 +115,6 @@ form.center input, form.center select{
   float: right;
   margin-right: 100px !important;
 }
+form.edit label{
+  text-align: left !important;
+}
