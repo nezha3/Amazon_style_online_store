@@ -3,13 +3,15 @@
 /************************************************
 File:		  user.php
 Author:		Oliver Chi
-Purpose:	register/login account in this website
+Purpose:	Login/Logout/Signup the Account
 **************************************************/
 
 require("libcommon.php");//add common interfaces
 $db = loadDB(); //load database
 
 /* Actions */
+
+// POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = $_POST["email"];
   $password = $_POST["password"];
@@ -24,9 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     nameCookie($user['name']); // set name cookie
     pageCookie("account");// locate home page of account management
   }
+
+// GET
 } else {
   if (array_key_exists('action', $_GET)) {//if require actions
     $action = strval($_GET['action']);
+
+    // LOGIN
     if ($action == "login"){//login action
       if (getPage()!="login_0"){
         pageCookie("login");
@@ -69,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <input type='submit' value='Login your account'>
                           </div>
                           <div class='form-group'>
-                            <a href='#' onclick='register()' id='signup'>Doesn't have an account?</a>
+                            <a href='#' onclick='signup()' id='signup'>Doesn't have an account?</a>
                           </div>
                       </form>
                     </div>
@@ -77,63 +83,74 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>";
       echo $js;
       echo $login;
+
+    // LOGOUT
     } elseif ($action == "logout"){//logout action
       setcookie("registeruser", "", time() - 36000, "/"); // delete user cookie
       setcookie("name", "", time() - 36000, "/"); // delete name cookie
       pageCookie("home");
-    } elseif ($action == "register"){//register action
-      if (getPage()=="login_0"){
-        pageCookie("login");
-      }
-      // Define variables and set to empty values
-      $nameErr = ""; $emailErr = ""; $passwordErr = ""; $confirmErr = "";//error message for form input
-      $name = ""; $email = ""; $password = ""; $confirm = "";//input values
-      $register = "<div class='signup'><!-- signup container -->
-                      <div class='signup-row'><!-- signup container row -->
-                        <div class='signup-text'><!-- signup display text -->
 
-                        </div>
-                        <div class='signup-form'><!-- login form -->
-                            <form id='signup_submit' method='POST' action='./signup.php'>
-                              <h2>Create Account</h2>
-                              <div class='form-group show-progress'>
+    // SIGNUP
+    } elseif ($action == "signup"){//signup action
+      pageCookie("signup");
 
-                              </div>
-                              <div class='form-group'>
-                                <input type='text' name='name' id='name' class='form-control' placeholder='Enter Name...'>
-                                <span class='error'><?php echo $nameErr;?></span>
-                                <div class='name-error error'></div>
-                              </div>
-                              <div class='form-group'>
-                                <input type='email' name='email' id='email' class='form-control' placeholder='Enter Email...'>
-                                <span class='error'><?php echo $emailErr;?></span>
-                                <div class='email-error error'></div>
-                              </div>
-                              <div class='form-group'>
-                                <input type='password' name='password' id='password' class='form-control' placeholder='Choose Password...'>
-                                <span class='error'><?php echo $passwordErr;?></span>
-                                <div class='password-error error'></div>
-                              </div>
-                              <div class='form-group'>
-                                <input type='password' name='confirm' id='confirm' class='form-control' placeholder='Confirm Password...'>
-                                <span class='error'><?php echo $confirmErr;?></span>
-                                <div class='confirm-error error'></div>
-                              </div>
-                              <div class='form-group'>
-                                <input type='submit' name='submit' value='Create your account'>
-                              </div>
-                              <div class='form-group'>
-                                <a href='#' id='login' onclick='login()'>Already have an account?</a>
-                              </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>";
-        echo $register;
-    } else {
+      $js = "<script>
+      $(function () {
+        $('#register_form').on('submit', function (e) {<!-- AJAX form submission -->
+          // validate and process form
+          $('.error_msg').empty();//empty error message
+          var email = $('#email').val();
+          var key = $('#password').val();
+          var key2 = $('#confirm').val();
+          var name = $('#name').val();
+          if (key != key2) $('.error_msg').text('Please Confirm Your Password Again: not equal!');
+          if (!(matchExpression(email).email)) $('.error_msg').text('Incorret Email Format!');
+          if (!(matchExpression(key).onlyMixOfAlphaNumeric)) $('.error_msg').text('Incorret Password Format: Password Only Contains Letters and Numbers!');
+          if (!(matchExpression(name).onlyLetters)) $('.error_msg').text('Incorret Name Format: Name Only Contains Letters!');
+          if ($('.error_msg').text().length == 0){//no error
+            register(email, key, name);//submit register request
+          } else {
+            e.preventDefault();
+          }
+        });
+      });</script>";
 
+      $signup = "<div class='signup-form'><!-- Sign Up Form -->
+                        <form id='register_form'>
+                          <h2>Create Account</h2>
+                          <div class='form-group show-progress'>
+                            <p class='error_msg' ></p>
+                          </div>
+                          <div class='form-group'>
+                            <input type='text' name='name' id='name' class='form-control' placeholder='Enter Name...'>
+                            <br>
+                          </div>
+                          <div class='form-group'>
+                            <input type='email' name='email' id='email' class='form-control' placeholder='Enter Email...'>
+                            <br>
+                          </div>
+                          <div class='form-group'>
+                            <input type='password' name='password' id='password' class='form-control' placeholder='Choose Password...'>
+                            <br>
+                          </div>
+                          <div class='form-group'>
+                            <input type='password' name='confirm' id='confirm' class='form-control' placeholder='Confirm Password...'>
+                            <br>
+                          </div>
+                          <div class='form-group'>
+                            <input id='register_button' type='submit' value='Create your account'>
+                          </div>
+                          <div class='form-group'>
+                            <a href='#' id='login' onclick='login()'>Already have an account?</a>
+                          </div>
+                        </form>
+                  </div>";
+      echo $js;
+      echo $signup;
     }
+
   }
+
 }
 
 $db->close();//close connection of database

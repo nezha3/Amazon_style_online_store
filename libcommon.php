@@ -44,6 +44,23 @@ function pageCookie($p){
   }
 }
 
+// Establsih/Set Error Messgae Cookie
+function errorCookie($msg){
+  if (isset($_COOKIE)){
+    setcookie("error", $msg, time() + (30), "/");//set page cookie timeout of 30 seconds
+  } else {
+    echo "This website uses COOKIE, please enable COOKIE in your explorer.";
+  }
+}
+
+// Get Error Cookie
+function getError(){
+  if (isset($_COOKIE["error"])) {
+    return $_COOKIE["registeruser"];
+  }
+  return "";//if fail, return empty string
+}
+
 // Get register user email
 function getEmail(){
   if (isset($_COOKIE["registeruser"])) {

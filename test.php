@@ -25,3 +25,21 @@ if ($productid == "") {//no product id due to incorrect title
 $db->close();//close connection of database
 
 ?>
+// JQuery AJAX FORM ACTION
+$(function() {
+        $("#register").click(function() {
+          // validate and process form
+          $('.error_msg').empty();//empty error message
+          var email = $('#email').val();
+          var key = $('#password').val();
+          var key2 = $('#confirm').val();
+          var name = $('#name').val();
+          if (key != key2) $('.error_msg').text('Please Confirm Your Password Again: not equal!');
+          if (!(matchExpression(email).email)) $('.error_msg').text('Incorret Email Format!');
+          if (!(matchExpression(key).onlyMixOfAlphaNumeric)) $('.error_msg').text('Incorret Password Format: Password Only Contains Letters and Numbers!');
+          if (!(matchExpression(name).onlyLetters)) $('.error_msg').text('Incorret Name Format: Name Only Contains Letters!');
+          if ($('.error_msg').text().length == 0){//no error
+            register(email, key, name);//submit register request
+          }
+        });
+});

@@ -137,7 +137,7 @@ $header = <<<HTML
 						$("#content").empty();//empty previous elements
 						$("#content").append(this.responseText);//append new elements
 						$("#account").text("New Account");
-						$("#account").attr("onclick","register()");
+						$("#account").attr("onclick","signup()");
 						if (getCookie("page") == "login_0"){
 							$('#loginMsg').css('display', 'block');
 						} else {
@@ -180,8 +180,8 @@ $header = <<<HTML
 			}
 		}
 
-		// Sign up an account
-		function register(){
+		// Sign Up An Account
+		function signup(){
 			if (getCookie("registeruser") == ""){
 				var ajaxRequest = new XMLHttpRequest();
 				ajaxRequest.onreadystatechange = function(){
@@ -192,8 +192,27 @@ $header = <<<HTML
 						$("#account").attr("onclick","login()");
 					}
 				}
-				ajaxRequest.open("GET", "user.php?action=register", true);
+				ajaxRequest.open("GET", "user.php?action=signup", true);
 				ajaxRequest.send();
+			}
+		}
+
+		// Register New Account
+		function register(email, key, name){
+			if (getCookie("registeruser") == ""){
+				var ajaxRequest = new XMLHttpRequest();
+				ajaxRequest.onreadystatechange = function(){
+					if (this.readyState == 4 && this.status == 200){
+						$("#content").empty();//empty previous elements
+						$("#content").append(this.responseText);//append new elements
+						$("#account").text("Logout Your Account");
+						$("#account").attr("onclick","logout()");
+					}
+				}
+				ajaxRequest.open("GET", "register.php?email="+email+"&key="+key+"&name="+name, true);
+				ajaxRequest.send();
+			} else {
+				$('.error_msg').text("Can't Register NEW Account, Please Logout Your OLD Account!");
 			}
 		}
 
@@ -254,6 +273,8 @@ $header = <<<HTML
 			// Decide which page to go (TODO: AJAX)
 			if (getCookie("page") == "login" || getCookie("page") == "login_0"){//layout login pages
 				login();
+			}  else if (getCookie("page") == "signup") {//layout signup page
+				signup();
 			} else if (getCookie("page") == "account") {//layout account management page
 				account();//load account management page
 			}  else if (getCookie("page") == "home") {//layout home page
@@ -283,6 +304,7 @@ $header = <<<HTML
 					$("#cart").text("Cart\\u00BB");//\\272\\u203a");//>
 				}
 			}
+
 		});
 
 		//check inputs with regular expression
@@ -308,6 +330,7 @@ $header = <<<HTML
 				expMatch.email = rgularExp.email.test(str);
 		    return expMatch;
 		}
+
 	</script>
 </head>
 <body>
