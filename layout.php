@@ -59,30 +59,44 @@ $header = <<<HTML
 		}
 
 		// Ajax: display books in Bestsellers
-		function bestsellers(){
+		function bestsellers(range){
 			var ajaxRequest = new XMLHttpRequest();
 			ajaxRequest.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
-					$("#rightcolumn .card:nth-of-type(2)").empty();//empty previous elements
-					$("#rightcolumn .card:nth-of-type(2)").append(this.responseText);//append new elements
+					$("#rightcolumn .card:first").empty();//empty previous elements
+					$("#rightcolumn .card:first").append(this.responseText);//append new elements
 				}
 			}
-			ajaxRequest.open("GET", "books.php?row=bestseller", true);
+			ajaxRequest.open("GET", "home.php?bestseller="+range, true);
 			ajaxRequest.send();
 		}
 
 		// Ajax: display books in Hot new releases
-		function newreleases(){
+		function newrelease(range){
 			var ajaxRequest = new XMLHttpRequest();
 			ajaxRequest.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
-					$("#rightcolumn .card:nth-of-type(3)").empty();//empty previous elements
-					$("#rightcolumn .card:nth-of-type(3)").append(this.responseText);//append new elements
+					$("#rightcolumn .card:first").empty();//empty previous elements
+					$("#rightcolumn .card:first").append(this.responseText);//append new elements
 				}
 			}
-			ajaxRequest.open("GET", "books.php?row=newrelease", true);
+			ajaxRequest.open("GET", "home.php?newrelease="+range, true);
 			ajaxRequest.send();
 		}
+
+		// Ajax: display books in books of discount
+		function discount(range){
+			var ajaxRequest = new XMLHttpRequest();
+			ajaxRequest.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					$("#rightcolumn .card:first").empty();//empty previous elements
+					$("#rightcolumn .card:first").append(this.responseText);//append new elements
+				}
+			}
+			ajaxRequest.open("GET", "home.php?discount="+range, true);
+			ajaxRequest.send();
+		}
+
 		//Homepage: content structure
 		function content(){
 			var ajaxRequest = new XMLHttpRequest();
@@ -92,15 +106,13 @@ $header = <<<HTML
 					$("#content").append(this.responseText);//append new elements
 				}
 			}
-			ajaxRequest.open("GET", "home.php", true);
+			ajaxRequest.open("GET", "home.php?action=content", true);
 			ajaxRequest.send();
 		}
 		// Home page: content body
 		function home(){
 			content();
 			allcategories();
-			//bestseller();
-			//newreleases();
 		}
 
 		// Check and Get Cookies
