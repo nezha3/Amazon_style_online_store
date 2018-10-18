@@ -92,10 +92,9 @@ form.center input, form.center select{
 /* "add to order" form in cart page */
 #addtoorder{
   width: 160px;
-  margin-left: 200px;
-  margin-right: 50px;
+  margin-left: 50px;
 }
-#savecart,#paythisorder{
+#savecart,#paythisorder, #emptycart{
   width: 160px;
   margin-left: 50px;
   margin-right: auto;
@@ -107,7 +106,7 @@ form.center input, form.center select{
   cursor: pointer;
   font: 400 11px system-ui !important;
 }
-#savecart,#paythisorder:hover {
+#savecart,#emptycart, #paythisorder:hover {
   background-color: #45a049;
 }
 #paythisorder{

@@ -6,8 +6,8 @@ Author:		Oliver Chi
 Purpose:	<installation processing> create tables and entries in database
 ******************************************************************************/
 
-// Load Database
-  $db = new SQLite3('./assets/db/db.sq3', SQLITE3_OPEN_READWRITE);
+// Create and Load Database
+  try{ $db = new SQLite3('./assets/db/db.sq3'); } catch(Exception $exception){ echo $exception->getMessage(); }
 
 // Create All Tables
   /* create user table */

@@ -12,7 +12,7 @@ $category = array("Children's Books","Textbooks & Study Guides","Science Fiction
 
 // Load Database
 function loadDB(){
-  $db = new SQLite3('./assets/db/db.sq3', SQLITE3_OPEN_READWRITE);
+  try{ $db = new SQLite3('./assets/db/db.sq3', SQLITE3_OPEN_READWRITE); } catch(Exception $exception){ echo $exception->getMessage(); }
   return $db;
 }
 

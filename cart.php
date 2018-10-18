@@ -74,10 +74,12 @@ if (cartCheck()){//not empty
 	}
 	echo "<tr><td> </td><td> </td><td> </td><td>Total:</td><td>$".(string)$totalprice."</td></tr></table>";
 	if (!loginCheck()) {
-		echo "<i>Please login your account to operate your cart!</i><br>";
+		echo "<i>Please login your account to make an order!</i><br>";
+		echo "<input id='emptycart' type='button' onclick='empty_cart()' value='Empty Your Cart'><br>";
 	} else {
 		echo "<input id='addtoorder' type='submit' value='Add Them To Order'>";
-		echo "<input id='savecart' type='button' value='Save Them To Account'>";
+		echo "<input id='emptycart' type='button' onclick='empty_cart()' value='Empty Your Cart'>";
+		echo "<input id='savecart' type='button' onclick='save_cart()' value='Save Them To Account' disabled>";
 	}
 	echo "</form>";
 } else {

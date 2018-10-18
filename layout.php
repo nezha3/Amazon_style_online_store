@@ -113,7 +113,23 @@ $header = <<<HTML
 		function home(){
 			content();
 			allcategories();
+			allcategories();
 		}
+
+		// Shop By
+		function shop(){
+			content();
+			newrelease(1);
+			newrelease(1);
+		}
+
+		// Sell
+		function sell(){
+			content();
+			bestsellers(1);
+			bestsellers(1);
+		}
+
 
 		// Check and Get Cookies
 		function getCookie(cname) {
@@ -138,6 +154,27 @@ $header = <<<HTML
 		    d.setTime(d.getTime() + (exdays*24*60*60*1000));
 		    var expires = "expires="+ d.toUTCString();
 		    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
+		// Empty Cart
+		function empty_cart(){
+			setCookie("cart", "", -1); // delete cart cookie
+			home();
+		}
+
+		// Save Cart
+		function save_cart(){
+			if (getCookie("registeruser") != ""){
+				var ajaxRequest = new XMLHttpRequest();
+				ajaxRequest.onreadystatechange = function(){
+					if (this.readyState == 4 && this.status == 200){
+						setcookie("cart", "", time() - 36000, "/"); // delete cart cookie
+						home();
+					}
+				}
+				ajaxRequest.open("GET", "save.php?action=cart", true);
+				ajaxRequest.send();
+			}
 		}
 
 		// Load Login page
@@ -380,8 +417,8 @@ $header = <<<HTML
 			</div>
 			<div class="col-50">
 			  <a href="index.php" onclick="setCookie('page', 'home', 1)">Home</a>
-			  <a href="#">Shop by</a>
-			  <a href="#">Sell</a>
+			  <a href="#" onclick='shop()'>Shop by</a>
+			  <a href="#" onclick='sell()'>Sell</a>
 				<a id="cart" href="./cart.php" style="float:right">Cart</a>
 				<a href="#" onclick="login()" id="account" style="float:right">Your Account</a>
 			</div>

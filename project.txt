@@ -140,7 +140,9 @@ E. Media and Other Files
 
   3) database: /assets/db/
 					db.sq3 is the Sqlite3 database which this project users
-					db.sq3 empty db is the empty sample for db.sq3
+					NOTICE: if datebase is not installed by install.php,
+									please check the user right of related directory
+									and make sure having right to write and read.
 
 	4) javascript library: /assets/js/
 					jquery-3.3.1.min.js is update JQuery library
@@ -150,8 +152,7 @@ F. Installation:
 	1) Make sure the directory of SQLite3 database and files are write-able;
 	if not, please change the permission of directory and files in /assets/db/.
 
-	2) Run install.php first before publishing this website; If error happened,
-	please copy empty database and rename as 'db.sq3'. The file directory is at '/media/db/'.
+	2) Run install.php first before running this website; If error happened,
+	please recheck the permission of directory and files in /assets/db/.
 
-	3) Default administrator account is name {admin} key {usq-ict};
-	Pre-installed register user accounts are (in style 'email'/'password') 'oliver.chi@icloud.com'/'u1037192' and 'eleen.guan@icloud.com'/'Eleen123'.
+	3) Pre-installed register user accounts are (in style 'email'/'password') 'oliver.chi@icloud.com'/'u1037192' and 'eleen.guan@icloud.com'/'Eleen123'.
