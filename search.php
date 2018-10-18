@@ -154,6 +154,12 @@ if (array_key_exists('field1', $_GET)) {//complex search
   $field2 = strval($_GET['field2']);//get field2
   $field3 = strval($_GET['field3']);//get field3
   $text3 = strval($_GET['text3']);//get text3
+
+  //avoid sql injection attack
+  //escape key words in Sqlite3
+  $text1=SQLite3::escapeString($text1);
+  $text3=SQLite3::escapeString($text3);
+
   //echo "<p>field1: $field1, text1: $text1, field2: $field2, field3: $field3, text3: $text3.";//only for test
   $searchcondition = "";
   if ($field1!=""){//first field is valid
@@ -213,6 +219,12 @@ if (array_key_exists('field1', $_GET)) {//complex search
   if (array_key_exists('category', $_GET)) {
     $field = strval($_GET['category']);//get category
     $keyword = strval($_GET['keyword']);//get keyword
+
+    //avoid sql injection attack
+    //escape key words in Sqlite3
+    $field = SQLite3::escapeString($field);
+    $keyword = SQLite3::escapeString($keyword);
+
     if (strcmp($field, 'All')==0){//search in all categories
       $result = $db->query("SELECT * FROM product WHERE title LIKE '%$keyword%' ");//excute sql
       echo "<h3>Search Results:</h3>";

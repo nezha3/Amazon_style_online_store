@@ -15,6 +15,12 @@ $db = loadDB(); //load database
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = $_POST["email"];
   $password = $_POST["password"];
+
+  //avoid sql injection attack
+  //escape key words in Sqlite3
+  $email=SQLite3::escapeString($email);
+  $password=SQLite3::escapeString($password);
+
   $result = $db->query("SELECT * FROM user WHERE user.email = '".$email."' AND user.key = '".$password."'");//sql
   $user = $result->fetchArray();
 

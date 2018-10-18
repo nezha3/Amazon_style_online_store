@@ -101,6 +101,11 @@ function getUserID(){
   if (isset($_COOKIE["registeruser"])) {
     $db = loadDB(); //load database
     $email = $_COOKIE["registeruser"];
+
+    //avoid sql injection attack
+    //escape key words in Sqlite3
+    $email=SQLite3::escapeString($email);
+
     $result = $db->query("SELECT user.id FROM user WHERE user.email == '$email'");//sql
     while($user = $result->fetchArray()){
       $userid = $user[0];
@@ -161,6 +166,14 @@ function getCart(){
 function insertUser($id, $email, $key, $name){
   $isOK = FALSE;//0 for initial return value
   $db = loadDB(); //load database
+
+  //avoid sql injection attack
+  //escape key words in Sqlite3
+  $id=SQLite3::escapeString($id);
+  $email=SQLite3::escapeString($email);
+  $key=SQLite3::escapeString($key);
+  $name=SQLite3::escapeString($name);
+
   if ($db->exec("INSERT INTO user (id, email, key, name) VALUES ($id, '$email', '$key', '$name');") ){//insert user
     $isOK = TRUE;//succeed
   }
@@ -172,6 +185,14 @@ function insertUser($id, $email, $key, $name){
 function updateUser($id, $email, $key, $name){
   $isOK = FALSE;//0 for initial return value
   $db = loadDB(); //load database
+
+  //avoid sql injection attack
+  //escape key words in Sqlite3
+  $id=SQLite3::escapeString($id);
+  $email=SQLite3::escapeString($email);
+  $key=SQLite3::escapeString($key);
+  $name=SQLite3::escapeString($name);
+
   if ($db->exec("UPDATE user SET email='$email', key='$key', name='$name' WHERE id=$id ;") ){//update user
     $isOK = TRUE;//succeed
   }
@@ -207,6 +228,11 @@ function deleteComment($id){
 function insertComment($id, $userid, $productid, $star, $comment){
   $isOK = FALSE;//0 for initial return value
   $db = loadDB(); //load database
+
+  //avoid sql injection attack
+  //escape key words in Sqlite3
+  $comment=SQLite3::escapeString($comment);
+
   if ($db->exec("INSERT INTO review (id, userid, productid, star, comment) VALUES ($id, $userid, $productid, $star, '$comment');") ){//insert comment
     $isOK = TRUE;//succeed
   }
@@ -246,6 +272,5 @@ function insertOrderProducts($id, $orderid, $productid, $price, $discount, $amou
   $db->close();//close db
   return $isOK;
 }
-
 
 ?>

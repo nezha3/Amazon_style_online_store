@@ -119,7 +119,30 @@ D. Database Design:
 			  | name [VARCHAR(10)] | key [VARCHAR(10)] |
 				------------------------------------------
 
-E. Media and Other Files
+E. Database Security
+	Avoid SQL injection attack:
+		Objectives:
+							register.php (new user information)
+							account.php (new comment and edit user information)
+							search.php (search field inputs)
+							user.php (login information inputs)
+							libcommon.php (common functions)
+							
+		Methods:
+			1) Prepared statements are very useful against SQL injections, because parameter values,
+			which are transmitted later using a different protocol, need not be correctly escaped.
+			If the original statement template is not derived from external input, SQL injection cannot occur.
+
+			2) Exclude using the PDO prepare statement and bindValue(), bindParam() methods,
+			this website also uses sqlite3::escape_string() function to avoid SQL injection attack.
+			Programming language PHP provides the function string sqlite3::escape_string() to escape
+			input characters that are special to SQLite.
+
+			3) And all inputs are validated before preparing SQL statement.
+		Hence, this website is considered as "SQL injection attack free".
+
+
+F. Media and Other Files
 	1) Media/Image: /assets/media/img
 					brand.png is the brand image of this website
 					icon.png is the icon picture of this website
@@ -148,7 +171,7 @@ E. Media and Other Files
 					jquery-3.3.1.min.js is update JQuery library
 
 
-F. Installation:
+G. Installation:
 	1) Make sure the directory of SQLite3 database and files are write-able;
 	if not, please change the permission of directory and files in /assets/db/.
 

@@ -126,6 +126,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {//ACTIONS
   $comment = strval($_GET['comment']);
   $productid = "";
 
+  //avoid sql injection attack
+  //escape key words in Sqlite3
+  $title=SQLite3::escapeString($title);
+  $comment=SQLite3::escapeString($comment);
+
   $result = $db->query("SELECT product.id FROM product WHERE product.title = '$title';");//sql
   while($product = $result->fetchArray()){//get product id
     $productid = $product[0];
