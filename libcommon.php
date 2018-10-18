@@ -94,12 +94,14 @@ function getUserID(){
 }
 
 // Get Next ID in table of datebase
+// if fail, return ""
+// if succeed, return next id
 function getNextID($str){
   $id = "";//empty string for initial return value
   $db = loadDB(); //load database
   $result = $db->query("SELECT MAX(id) FROM $str ;");//sql
   while($table = $result->fetchArray()){
-    $id = $table[0];
+    $id = intval($table[0]) + 1;
   }
   $db->close();//close db
   return $id;
@@ -140,7 +142,7 @@ function getCart(){
 
 // Insert User
 function insertUser($id, $email, $key, $name){
-  $isOk = FALSE;//0 for initial return value
+  $isOK = FALSE;//0 for initial return value
   $db = loadDB(); //load database
   if ($db->exec("INSERT INTO user (id, email, key, name) VALUES ($id, '$email', '$key', '$name');") ){//insert user
     $isOK = TRUE;//succeed
@@ -151,7 +153,7 @@ function insertUser($id, $email, $key, $name){
 
 // Update User
 function updateUser($id, $email, $key, $name){
-  $isOk = FALSE;//0 for initial return value
+  $isOK = FALSE;//0 for initial return value
   $db = loadDB(); //load database
   if ($db->exec("UPDATE user SET email='$email', key='$key', name='$name' WHERE id=$id ;") ){//update user
     $isOK = TRUE;//succeed
@@ -162,7 +164,7 @@ function updateUser($id, $email, $key, $name){
 
 // Delete Order
 function deleteOrder($id){
-  $isOk = FALSE;//0 for initial return value
+  $isOK = FALSE;//0 for initial return value
   $db = loadDB(); //load database
   if ($db->exec("DELETE FROM orders WHERE id=$id ;") ){//delete order in table orders
     if ($db->exec("DELETE FROM orderproducts WHERE orderid=$id ;") ){//delete products in that order
@@ -172,4 +174,61 @@ function deleteOrder($id){
   $db->close();//close db
   return $isOK;
 }
+
+// Delete Comment
+function deleteComment($id){
+  $isOK = FALSE;//0 for initial return value
+  $db = loadDB(); //load database
+  if ($db->exec("DELETE FROM review WHERE id=$id ;") ){//delete comment
+    $isOK = TRUE;//succeed
+  }
+  $db->close();//close db
+  return $isOK;
+}
+
+// Insert Comment
+function insertComment($id, $userid, $productid, $star, $comment){
+  $isOK = FALSE;//0 for initial return value
+  $db = loadDB(); //load database
+  if ($db->exec("INSERT INTO review (id, userid, productid, star, comment) VALUES ($id, $userid, $productid, $star, '$comment');") ){//insert comment
+    $isOK = TRUE;//succeed
+  }
+  $db->close();//close db
+  return $isOK;
+}
+
+// Insert Order
+function insertOrder($id, $userid, $date, $totalprice, $ifpaid, $deliveryid){
+  $isOK = FALSE;//0 for initial return value
+  $db = loadDB(); //load database
+  if ($db->exec("INSERT INTO orders (id, userid, date, totalprice, ifpaid, deliveryid) VALUES ($id, $userid, '$date', $totalprice, $ifpaid, $deliveryid);") ){//insert order
+    $isOK = TRUE;//succeed
+  }
+  $db->close();//close db
+  return $isOK;
+}
+
+// Update totalprice in orders
+function updateTotalprice($id, $totalprice){
+  $isOK = FALSE;//0 for initial return value
+  $db = loadDB(); //load database
+  if ($db->exec("UPDATE orders SET totalprice=$totalprice WHERE id=$id ;") ){//update totalprice
+    $isOK = TRUE;//succeed
+  }
+  $db->close();//close db
+  return $isOK;
+}
+
+// Insert Product into orderproducts table
+function insertOrderProducts($id, $orderid, $productid, $price, $discount, $amount){
+  $isOK = FALSE;//0 for initial return value
+  $db = loadDB(); //load database
+  if ($db->exec("INSERT INTO orderproducts(id, orderid, productid, price, discount, amount) VALUES ($id, $orderid, $productid, $price, $discount, $amount) ;") ){//do insert
+    $isOK = TRUE;//succeed
+  }
+  $db->close();//close db
+  return $isOK;
+}
+
+
 ?>

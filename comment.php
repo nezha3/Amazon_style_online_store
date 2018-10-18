@@ -38,7 +38,7 @@ while($comment = $result->fetchArray()){
     while($user = $result2->fetchArray()){
       echo "<span>".$user['name']."</span>";
     }
-    echo $delete_button;
+    //echo $delete_button;
     echo "<p>";//print stars
     $i = $comment['star'];
     while ($i){
@@ -54,8 +54,8 @@ while($comment = $result->fetchArray()){
     echo "<p>".$comment['comment']."</p>";
   echo "</div>";
 }
-echo $add_button;
-echo "<p id='errorMsg'></p>";
+//echo $add_button;
+//echo "<p id='errorMsg'></p>";
 
 $db->close();//close connection of database
 

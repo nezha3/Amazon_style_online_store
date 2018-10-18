@@ -29,37 +29,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//pay order and store order
     $info = json_decode("[".$_GET["order"]."]");//json missing infomation
     //create new order in Database
     if (getNextID("orders")!=""){
-      $orderid = getNextID("orders") + 1;
+      $orderid = getNextID("orders");
     } else {
       $orderid = 10000001;
     }
     $userid = getUserID();
     $date = date("Y-m-d");
-    $sql = "INSERT INTO orders (id, userid, date, totalprice, ifpaid, deliveryid)
-    VALUES ($orderid, $userid, '$date', NULL, 1, NULL);";
-    if ($db->exec($sql)){
-      $j = 0; // caculate insert times
+    if (insertOrder($orderid, $userid, $date, 0, 1, getNextID("delivery"))){//insert order
+      $j = 0; // calculate insert times
+      $totalprice = 0; //for calculate totalprice
       for ($i=0; $i < count($info);$i++){
-        if (getNextID("orderproducts")!=""){
-          $id = getNextID("orderproducts") + 1;
+        if (getNextID("orderproducts")!=""){//get next id in orderproducts table
+          $id = getNextID("orderproducts");
         } else {
           $id = 10000001;
         }
         $productid = $info[$i]->id;
-        $amount = $info[$i]->quantity;
+        $amount = intval($info[$i]->quantity);
         $result = $db->query("SELECT product.price FROM product WHERE product.id = $productid ;");//sql
-        while($product = $result->fetchArray()){
-          $price = $product[0];
+        while($product = $result->fetchArray()){//get product price
+          $price = floatval($product[0]);
         }
-        $sql = "INSERT INTO orderproducts(id, orderid, productid, price, discount, amount)
-        VALUES ($id, $orderid, $productid, $price, 1.0, $amount) ;";
-        if ($db->exec($sql)){
+        $totalprice = $totalprice + $price * $amount;//calculate totalprice
+        if (insertOrderProducts($id, $orderid, $productid, $price, 1.0, $amount)){//insert product in orderproducts table
           $j = $j + 1;
         } else {
           echo "FAIL: insert product $productid into orderproducts table";
         }
       }
-      if ($j == $i) {//successfully generate order
+      if ($j == $i && updateTotalprice($orderid, $totalprice)) {//successfully generate order
         echo "[Successfully Generate Order In Database]: ";
         echo " Order ID: $orderid --";
         echo " Date: $date --";
